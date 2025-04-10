@@ -5,11 +5,12 @@
     <div class="nav">
         <a href="/" class="nav-logo">Bubbleworks</a>
         <ul class="nav-links">
-            <li><a href="/" class="btn">Home</a></li>
-            <li><a href="" class="btn">Services</a></li>
-            <li><a href=""class="btn">Contact Us</a></li>
-            <li><a href=""class="btn btn-secondary">Sign in</a></li>
-            <li><a href=""class="btn btn-primary">Register</a></li>
+            <li><x-nav-link href="" class="btn">Home</x-nav-link></li>
+            <li><x-nav-link href="" class="btn">Contact Us</x-nav-link></li>
+            <li><x-nav-link href="" class="btn btn-secondary">Sign in</x-nav-link></li>
+            <li><x-nav-link href="" class="btn btn-primary">Register</x-nav-link></li>
+
         </ul>
     </div>
 </nav>
+    

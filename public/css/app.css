@@ -32,7 +32,7 @@ h2 {
 a, p,li {
     font-family: "Fredoka", sans-serif;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 1.5;
     color: #2a5286;
     letter-spacing: 0px;
@@ -62,6 +62,8 @@ nav {
 .nav {
     display: flex;
     justify-content: space-between;
+    padding: 0px 20px;
+
 }
 .nav-links {
     display: flex;
@@ -108,14 +110,15 @@ nav {
 
 /* ---BUTTON--- */
 .btn {
-    padding: 10px 23px;
+    padding: 10px 20px;
     color: white;
     border: solid rgba(255, 255, 255, 0) 2px;
     border-radius: 20px;
 
-    margin: 0px 5px;
 }
 .btn:hover {
+    padding: 10px 20px;
+
     color: #2a5286;
     border: solid white 2px;
     transition: 0.3s;
@@ -126,7 +129,7 @@ nav {
     background-color: #2a5286;
     border-radius: 20px;
     padding: 0px;
-    padding: 10px 23px;
+    padding: 10px 20px;
     margin-inline-start: 20px;
 }
 
@@ -134,14 +137,14 @@ nav {
     background-color: #f1f1f1;
     color: #2a5286;
     border: solid  #2a5286 2px;
-    padding: 10px 23px;
+    padding: 10px 20px;
 }
 
 .btn-secondary{
     border: solid white 2px;
     border-radius: 20px;
-    padding: 0px;
-    padding: 8px 23px;
+    margin: 0px 10px;
+    
 }
 
 .btn-secondary:hover{
