@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class ServiceController extends Controller
     {
         //
 
-        return  view('services');
+        return view('register');
     }
 
     /**
@@ -33,21 +33,22 @@ class ServiceController extends Controller
         //
         $validated = $request->validate([
 
-            'service_name' => 'required',
-            'price_per_kg' => 'required',
-
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone',
+            'email' => 'required|email',
+            'password' => 'required'
 
         ]);
 
-        Service::create($validated);
-            return redirect('services.create');
-
+        User::create($validated);
+        return redirect('/create');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show(string $id)
     {
         //
     }
@@ -55,7 +56,7 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(string $id)
     {
         //
     }
@@ -63,7 +64,7 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -71,7 +72,7 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(string $id)
     {
         //
     }

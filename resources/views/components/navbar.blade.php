@@ -8,7 +8,7 @@
             <li><x-nav-link href="" class="btn">Home</x-nav-link></li>
             <li><x-nav-link href="" class="btn">Contact Us</x-nav-link></li>
             <li><x-nav-link href="" class="btn btn-secondary">Sign in</x-nav-link></li>
-            <li><x-nav-link href="" class="btn btn-primary">Register</x-nav-link></li>
+            <li><x-nav-link href="{{ route('register') }}" class="btn btn-primary">Register</x-nav-link></li>
 
         </ul>
     </div>
