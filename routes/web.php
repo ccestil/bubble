@@ -8,8 +8,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/create', [UserController::class, 'create'])->name('register');
-Route::post('/store', [UserController::class, 'store'])->name('store');
+Route::get('/users.create', [UserController::class, 'create'])->name('users.register');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
-Route::get('/services.create', [ServiceController::class, 'create'])->name('service.create');
-Route::post('/services.store', [ServiceController::class, 'store'])->name('service.store');
+Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+Route::post('/services', [ServiceController::class, 'store'])->name('services.store');

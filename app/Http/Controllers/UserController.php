@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         //
 
-        return view('register');
+        return view('auth.register');
     }
 
     /**
@@ -42,7 +42,7 @@ class UserController extends Controller
         ]);
 
         User::create($validated);
-        return redirect('/create');
+        return redirect('/users.create');
     }
 
     /**

@@ -1,6 +1,6 @@
 <h2>Services</h2>
     
-<form action="{{ route('service.store') }}" method="POST">
+<form action="{{ route('services.store') }}" method="POST">
     @csrf
 
     <label for="service_name">Name</label>

@@ -10,7 +10,7 @@
     
     <h2>Register</h2>
     
-    <form action="{{ route('store') }}" method="POST">
+    <form action="{{ route('users.store') }}" method="POST">
         @csrf
 
         <label for="first_name">First name</label>
