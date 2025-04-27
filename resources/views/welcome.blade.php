@@ -1,4 +1,4 @@
-<x-layout>
+<x-landing.layout>
 
     <!-- MAIN -->
     <main>
@@ -45,6 +45,6 @@
                 <h2>John Doe</h2>
             </div>
         </section>
-    </main>
+    </main> 
 
-</x-layout>
+</x-landing.layout>

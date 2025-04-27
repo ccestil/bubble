@@ -19,8 +19,8 @@
     <!-- HEADER->Navbar->Hero -->
     <header>
 
-        <x-navbar> </x-navbar>
-        <x-hero> </x-hero>
+        <x-landing.navbar> </x-landing.navbar>
+        <x-landing.hero> </x-landing.hero>
 
     </header>
 
@@ -28,7 +28,7 @@
     {{ $slot }}
 
     {{-- FOOTER->cta->contact --}}
-    <x-footer> </x-footer>
+    <x-landing.footer> </x-landing.footer>
 
 </body>
 

@@ -50,7 +50,16 @@ class User extends Authenticatable
         ];
     }
 
-    public function customers(): HasOne 
+    protected static function booted()
+    {
+        static::created(function ($user) {
+            Customer::create([
+                'user_id' => $user->id,
+            ]);
+        });
+    }
+
+    public function customers(): HasOne
     {
         return $this->hasOne(Customer::class);
     }
