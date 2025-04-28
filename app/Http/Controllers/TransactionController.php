@@ -21,6 +21,8 @@ class TransactionController extends Controller
     public function create()
     {
         //
+
+        return view('customer.transactions.create');
     }
 
     /**

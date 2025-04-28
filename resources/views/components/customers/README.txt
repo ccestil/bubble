@@ -4,21 +4,21 @@ views to create in this customer folder.
 
 ---------------GLOBAL--------------
 
-layout.blade.php
+layout.blade.php [x]
     - this will hold the contents of the dashboard
 
-nav-bar.blade.php 
+nav-bar.blade.php [x]
     - we will put the navigation links here
     - we will put this inside the layout
 
 
 ---------------CONTENTS---------------
 
-create-transaction.blade.php
+create-transaction.blade.php [x]
     - FORM to creat transaction 
     - BUTTON - [done] redirect to dashboard.blade.php
 
-status-card.blade.php
+status-card.blade.php 
     - as it says, this will hold the content of the status card
 
 transaction-card.blade.php 
