@@ -1,2 +1,6 @@
-<h1>Welcome back!</h1>
-<h2>Admin</h2>
+<x-admins.layout>
+
+    <x-admins.dashboard> </x-admins.dashboard>
+
+
+</x-admins.layout>
