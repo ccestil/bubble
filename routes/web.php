@@ -11,6 +11,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/customers', function () {
+    return view('admin.customer');
+});
+
+Route::get('/employees', function () {
+    return view('admin.employee');
+});
+
 Route::get('/users/create', [UserController::class, 'create'])->name('users.register');
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 

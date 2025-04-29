@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;  
+    color: #333;
+    max-width: 1280px;
+    margin: 0px auto;
+}
+
+.inline-header, .inline-p {
+    display: inline-block;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: white;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+}
+
+.nav-header h1 {
+    color: #0066ff;
+    font-size: 24px;
+    margin-bottom: 2rem;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.add-btn {
+    background-color: #0066ff;
+    color: white;
+    border: none;   
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.search-form input[type="text"] {
+    padding: 0.5rem;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
+
+/* Card Layout */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.revenue-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.revenue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.revenue-header select {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.revenue-cards {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.revenue-total {
+    margin-top: 40px;
+    font-size: 32px;
+    color: #0066ff;
+}
+
+
+
+
+.card {
+    background-color: #fdfdfd;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(128, 128, 128, 0.123);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    flex: 1;
+    min-width: 200px;
+}
+
+.card-title {
+    margin-bottom: 20px;
+
+}
+
+.breakdown-card, .revenue-card {
+    padding: 30px;
+}
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    font-size: 14px;
+}
+
+.amount {
+    margin-top: 10px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+
+.small-card h2 {
+    font-size: 24px;
+    color: #64D9E2;
+}
+
+.nav-links a {
+    display: block;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+    background-color: #e0f0ff;
+    color: #0066ff;
+    font-weight: bold;
+}
+
+/* Emojis */
+.nav-links li:nth-child(1) a::before { content: "📊 "; }
+.nav-links li:nth-child(2) a::before { content: "🧾 "; }
+.nav-links li:nth-child(3) a::before { content: "👥 "; }
+.nav-links li:nth-child(4) a::before { content: "🧍 "; }
+.nav-links li:nth-child(5) a::before { content: "📦 "; }
