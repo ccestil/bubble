@@ -6,6 +6,8 @@
     <title>Bubbleworks Admin</title>
 
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    @stack('styles')
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

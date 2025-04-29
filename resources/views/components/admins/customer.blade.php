@@ -1,31 +1,39 @@
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/customer.css') }}">
+@endpush
 
-
-<div>
-    <div>
-        <img src="" alt="customers ">
-        <h3>Customers</h3>
-    
-        <p>Total customers</p>
-        <p>62</p>
+<div class="container">
+    <div class="card">
+        <h3>👥 Customers</h3>
+        <p class="subtext">Total customers</p>
+        <p class="total">62</p>
     </div>
 
-    <div>
-        <p>Name</p>
-        <p>Email</p>
-        <p>Phone</p>
-        <p>Active laundry</p>
-        <p>Action</p>
-
+    <div class="card">
+        <h3>Customer List</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Active Laundry</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Name">Chris Estil</td>
+                    <td data-label="Email">chirs@gmail.com</td>
+                    <td data-label="Phone">0909090909</td>
+                    <td data-label="Active Laundry">1</td>
+                    <td data-label="Action">
+                        <button class="btn btn-edit">Edit</button>
+                        <button class="btn btn-delete">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
     </div>
-
-    <li>
-        <p>Chris Estil</p>
-        <p>chirs@gmail.com</p>
-        <p>0909090909</p>
-        <p>1</p>
-        
-        <button>edit</button>
-        <button>delete</button>
-    </li>
-</div> 
-
+</div>
