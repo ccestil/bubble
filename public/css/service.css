@@ -1,4 +1,6 @@
-.customer-container {
+/* service.css */
+
+.service-container {
     max-width: 1000px;
     margin: 32px auto;
     font-family: 'Inter', sans-serif;
@@ -7,129 +9,61 @@
     background: linear-gradient(to bottom right, #f8fafc, #ffffff);
     padding: 24px;
     border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.customer-header {
+.service-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
 }
 
-.customer-title {
+.service-title {
     font-size: 2rem;
     font-weight: 700;
     color: #1f2937;
     margin: 0;
+    margin-bottom: 24px;
+
 }
 
-.total-customers-inline {
-    font-size: 1rem;
+
+
+
+.service-action-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.service-action-header .total-services {
+    background: #fff;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+.service-action-header .total-services p {
+    margin: 0;
+    font-size: 1.25rem;
     font-weight: 600;
-    color: #1f2937;
+    color: #3b82f6;
+    opacity: 0.8;
 }
 
-.total-customers-inline strong {
-    margin-left: 4px;
-}
-
-
-.customer-header .total-customers p:last-child {
+.service-action-header .total-services p:last-child {
     font-size: 1.75rem;
     font-weight: 700;
     color: #1f2937;
     opacity: 1;
 }
 
-.customer-list {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    margin-bottom: 24px;
-    border: 1px solid #e5e7eb;
-}
-
-.customer-list table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 0;
-}
-
-.customer-list th,
-.customer-list td {
-    padding: 16px 24px;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 0.875rem;
-}
-
-.customer-list th {
-    background: #f8fafc;
-    font-weight: 600;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid #e5e7eb;
-    position: sticky;
-    top: 0;
-    background: #fff;
-}
-
-.customer-list tr:hover {
-    background: #f1f5f9;
-    transition: background 0.2s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.customer-list tr:first-child {
-    border-top: none;
-}
-
-.customer-list td {
-    transition: background 0.2s ease;
-}
-
-.customer-list .customer-name {
-    font-weight: 600;
-    color: #1f2937;
-}
-
-.customer-list .action-buttons {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-}
-
-.customer-list .action-buttons button {
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-    cursor: pointer;
-    background: #f1f5f9;
-    color: #64748b;
-}
-
-.customer-list .action-buttons button:hover {
-    background: #3b82f6;
-    color: white;
-    border-color: #3b82f6;
-}
-
-.customer-list .action-buttons .delete {
-    background: #fee2e2;
-    color: #ef4444;
-    border-color: #ef4444;
-}
-
-.customer-list .action-buttons .delete:hover {
-    background: #ef4444;
-    color: white;
-}
-
-.add-customer-button {
+.add-service-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,18 +75,105 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    margin-bottom: 24px;
-    gap: 8px;
     text-decoration: none;
     color: inherit;
 }
 
-.add-customer-button:hover {
+.add-service-button:hover {
     background: #2563eb;
     transform: translateY(-2px);
 }
 
-.empty-state {
+.service-list {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid #e5e7eb;
+}
+
+.service-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.service-list th,
+.service-list td {
+    padding: 16px 24px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.875rem;
+}
+
+.service-list th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    background: #fff;
+}
+
+.service-list tr:hover {
+    background: #f1f5f9;
+    transition: background 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.service-list tr:first-child {
+    border-top: none;
+}
+
+.service-list td {
+    transition: background 0.2s ease;
+}
+
+.service-list .service-name {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.service-list .action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.service-list .action-buttons button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.service-list .action-buttons button:hover {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.service-list .action-buttons .delete {
+    background: #fee2e2;
+    color: #ef4444;
+    border-color: #ef4444;
+}
+
+.service-list .action-buttons .delete:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.service-empty-state {
     text-align: center;
     padding: 40px;
     color: #64748b;
@@ -165,35 +186,31 @@
     gap: 16px;
 }
 
-.empty-state svg {
+.service-empty-state svg {
     width: 100px;
     height: 100px;
     opacity: 0.4;
 }
 
 @media (max-width: 768px) {
-    .customer-container {
+    .service-container {
         padding: 16px;
     }
 
-    .customer-header {
+    .service-title {
+        font-size: 1.75rem;
+    }
+
+    .service-action-header {
         flex-direction: column;
         gap: 16px;
     }
 
-    .customer-header h1 {
-        font-size: 1.75rem;
-    }
-
-    .customer-header .total-customers {
-        padding: 12px 20px;
-    }
-
-    .customer-list {
+    .service-list {
         overflow-x: auto;
     }
 
-    .customer-list th {
+    .service-list th {
         font-size: 0.75rem;
     }
 }

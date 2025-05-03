@@ -1,28 +1,27 @@
-<div class="employee-header">
-    <h3 class="employee-title">🧍 Employees</h3>
-    <div class="total-employees-inline">
-        <span>Total Employees:</span> <strong>3</strong>
-    </div>
+<div class="service-header">
+    <h3 class="service-title">🫧 Services</h3>
 </div>
+ 
 
-
-    <div class="employee-list">
+    <div class="service-list">
         <table>
             <thead>
                 <tr>
                     <th>👤 Name</th>
-                    <th>📧 Email</th>
-                    <th>⏰ Schedule</th>
-                    <th>🎓 Role</th>
+                    <th>📧 Description</th>
+                    <th>⏰ Supplier</th>
+                    <th>🏷️ Price</th>
+                    <th>📦 Stock</th>
                     <th>⚙️ Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="employee-name">Chris Estil</td>
-                    <td>chris@gmail.com</td>
-                    <td>8-5pm</td>
-                    <td>Owner</td>
+                    <td class="service-name">Downy</td>
+                    <td>Fabric conditioner</td>
+                    <td>Triple A</td>
+                    <td>20.00</td>
+                    <td>120</td>
                     <td class="action-buttons">
                         <button class="edit">✏️ Edit</button>
                         <button class="delete">🗑️ Delete</button>
@@ -34,7 +33,7 @@
     </div>
 
     @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/employee.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/service.css') }}">
     @endpush
 
     

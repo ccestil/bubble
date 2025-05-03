@@ -23,6 +23,17 @@ Route::get('/employees', function () {
     return view('admin.employee');
 });
 
+Route::get('/inventory', function () {
+    return view('admin.inventory');
+});
+Route::get('/services', function () {
+    return view('admin.service');
+});
+
+Route::get('/transactions', function () {
+    return view('admin.transaction');
+});
+
 Route::get('/users/create', [UserController::class, 'create'])->name('users.register');
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 

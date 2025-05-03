@@ -1,4 +1,4 @@
-.customer-container {
+.transaction-container {
     max-width: 1000px;
     margin: 32px auto;
     font-family: 'Inter', sans-serif;
@@ -9,39 +9,39 @@
     border-radius: 12px;
 }
 
-.customer-header {
+.transaction-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
 }
 
-.customer-title {
+.transaction-title {
     font-size: 2rem;
     font-weight: 700;
     color: #1f2937;
     margin: 0;
 }
 
-.total-customers-inline {
+.total-transactions-inline {
     font-size: 1rem;
     font-weight: 600;
     color: #1f2937;
 }
 
-.total-customers-inline strong {
+.total-transactions-inline strong {
     margin-left: 4px;
 }
 
 
-.customer-header .total-customers p:last-child {
+.transaction-header .total-transactions p:last-child {
     font-size: 1.75rem;
     font-weight: 700;
     color: #1f2937;
     opacity: 1;
 }
 
-.customer-list {
+.transaction-list {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -50,21 +50,21 @@
     border: 1px solid #e5e7eb;
 }
 
-.customer-list table {
+.transaction-list table {
     width: 100%;
     border-collapse: collapse;
     margin: 0;
 }
 
-.customer-list th,
-.customer-list td {
+.transaction-list th,
+.transaction-list td {
     padding: 16px 24px;
     text-align: left;
     border-bottom: 1px solid #e5e7eb;
     font-size: 0.875rem;
 }
 
-.customer-list th {
+.transaction-list th {
     background: #f8fafc;
     font-weight: 600;
     color: #64748b;
@@ -76,32 +76,32 @@
     background: #fff;
 }
 
-.customer-list tr:hover {
+.transaction-list tr:hover {
     background: #f1f5f9;
     transition: background 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.customer-list tr:first-child {
+.transaction-list tr:first-child {
     border-top: none;
 }
 
-.customer-list td {
+.transaction-list td {
     transition: background 0.2s ease;
 }
 
-.customer-list .customer-name {
+.transaction-list .transaction-name {
     font-weight: 600;
     color: #1f2937;
 }
 
-.customer-list .action-buttons {
+.transaction-list .action-buttons {
     display: flex;
     gap: 8px;
     justify-content: flex-end;
 }
 
-.customer-list .action-buttons button {
+.transaction-list .action-buttons button {
     padding: 8px 16px;
     border-radius: 8px;
     font-weight: 500;
@@ -112,24 +112,24 @@
     color: #64748b;
 }
 
-.customer-list .action-buttons button:hover {
+.transaction-list .action-buttons button:hover {
     background: #3b82f6;
     color: white;
     border-color: #3b82f6;
 }
 
-.customer-list .action-buttons .delete {
+.transaction-list .action-buttons .delete {
     background: #fee2e2;
     color: #ef4444;
     border-color: #ef4444;
 }
 
-.customer-list .action-buttons .delete:hover {
+.transaction-list .action-buttons .delete:hover {
     background: #ef4444;
     color: white;
 }
 
-.add-customer-button {
+.add-transaction-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,7 +147,7 @@
     color: inherit;
 }
 
-.add-customer-button:hover {
+.add-transaction-button:hover {
     background: #2563eb;
     transform: translateY(-2px);
 }
@@ -172,28 +172,28 @@
 }
 
 @media (max-width: 768px) {
-    .customer-container {
+    .transaction-container {
         padding: 16px;
     }
 
-    .customer-header {
+    .transaction-header {
         flex-direction: column;
         gap: 16px;
     }
 
-    .customer-header h1 {
+    .transaction-header h1 {
         font-size: 1.75rem;
     }
 
-    .customer-header .total-customers {
+    .transaction-header .total-transactions {
         padding: 12px 20px;
     }
 
-    .customer-list {
+    .transaction-list {
         overflow-x: auto;
     }
 
-    .customer-list th {
+    .transaction-list th {
         font-size: 0.75rem;
     }
 }

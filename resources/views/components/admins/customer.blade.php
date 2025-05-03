@@ -1,23 +1,20 @@
-<div class="customer-container">
-    <div class="customer-header">
-        <h1>Customers</h1>
-        <div class="total-customers">
-            <p>Total Customers</p>
-            <p>62</p>
-        </div>
+<div class="customer-header">
+    <h1 class="customer-title">👥 Customers</h1>
+    <div class="total-customers-inline">
+        <span>Total Customers:</span> <strong>62</strong>
     </div>
+</div>
 
-    <button class="add-customer-button">Add Customer</button>
 
     <div class="customer-list">
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Active Laundry</th>
-                    <th>Action</th>
+                    <th>👤 Name</th>
+                    <th>📧 Email</th>
+                    <th>📱 Phone</th>
+                    <th>🧺 Active Laundry</th>
+                    <th>⚙️ Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,8 +35,4 @@
     @push('styles')
 <link rel="stylesheet" href="{{ asset('css/customer.css') }}">
 @endpush
-    <div class="empty-state">
-        No customers found.
-    </div>
-</div>
 
