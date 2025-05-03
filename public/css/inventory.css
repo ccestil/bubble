@@ -24,8 +24,12 @@
     font-weight: 700;
     color: #1f2937;
     margin: 0;
-    margin-bottom: 24px;
 
+}
+
+.logs {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 
@@ -76,12 +80,11 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    color: inherit;
 }
 
 .add-inventory-button:hover {
     background: #2563eb;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .inventory-list {
@@ -224,6 +227,38 @@
 .inventory-list th:nth-child(4) { /* Action */
     text-align: right;
 }
+
+
+/* Inventory Logs specific styling */
+.inventory-list .log-product {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Align text columns center */
+.inventory-list td:nth-child(1),
+.inventory-list th:nth-child(1), /* Product */
+.inventory-list td:nth-child(2),
+.inventory-list th:nth-child(2), /* Employee */
+.inventory-list td:nth-child(6),
+.inventory-list th:nth-child(6) { /* Type */
+    text-align: center;
+}
+
+/* Align numeric columns right */
+.inventory-list td:nth-child(3),
+.inventory-list th:nth-child(3), /* Before */
+.inventory-list td:nth-child(4),
+.inventory-list th:nth-child(4) { /* After */
+    text-align: right;
+}
+
+/* Align datetime column left */
+.inventory-list td:nth-child(5),
+.inventory-list th:nth-child(5) { /* Date & Time */
+    text-align: left;
+}
+
 
 
 
