@@ -12,3 +12,8 @@
         <li><a href="/services">Services</a></li>
     </ul>
 </nav>
+
+
+<div>
+    <button>Log Out</button>
+</div>

@@ -25,7 +25,8 @@
     <main class="main-content">
         {{-- Topbar --}}
         <div class="topbar">
-            <button class="add-btn">+ Add</button>
+            <button class="add-btn"><a href="{{ route('transactions.create') }}" style="color: white;">Add Transaction</a></button> 
+            {{-- add transaction button, shoudl i use a tag? --}}
             <form class="search-form">
                 <input type="text" name="search" placeholder="Search...">
             </form>

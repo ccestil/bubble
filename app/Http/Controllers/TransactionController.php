@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\Employee;
+use App\Models\Service;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class TransactionController extends Controller
 {
@@ -12,7 +16,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        // You'll implement this later to show a list of transactions
+        return view('admin.transaction');
     }
 
     /**
@@ -20,9 +25,17 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $customers = Customer::with('user')->get()->map(function ($customer) {
+            return [
+                'id' => $customer->id,
+                'text' => $customer->user->first_name . ' ' . $customer->user->last_name . ' (' . $customer->user->email . ')',
+            ];
+        });
 
-        return view('customer.transactions.create');
+        $services = Service::all()->pluck('service_name', 'id');
+        $employees = Employee::with('user')->get()->pluck('user.first_name', 'id');
+
+        return view('admin.transactions.create', compact('customers', 'services', 'employees'));
     }
 
     /**
@@ -30,8 +43,25 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'customer_id' => 'required|exists:customers,id',
+            'service_id' => 'required|exists:services,id',
+            'employee_id' => 'required|exists:employees,id',
+            'weight' => 'required|numeric|min:0',
+            'payment_status' => 'required|string|max:255',
+        ]);
+
+        $service = Service::findOrFail($request->service_id);
+        $totalAmount = $request->weight * $service->price_per_kg;
+
+        Transaction::create(array_merge($request->all(), ['total_amount' => $totalAmount]));
+    return redirect()->route('admin.transaction')->with('success', 'Transaction created successfully!');
+
+
     }
+
+
+
 
     /**
      * Display the specified resource.

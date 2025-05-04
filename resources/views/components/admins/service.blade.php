@@ -1,5 +1,6 @@
 <div class="service-header">
     <h3 class="service-title">🫧 Services</h3>
+    <a href="{{ route('services.create') }}">Add New Service</a>
 </div>
  
 

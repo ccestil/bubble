@@ -13,6 +13,7 @@ class ServiceController extends Controller
     public function index()
     {
         //
+        return view('admin.service');
     }
 
     /**
@@ -20,9 +21,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
-
-        return  view('services');
+        return view('admin.services.create'); // Create this view
     }
 
     /**
@@ -40,7 +39,7 @@ class ServiceController extends Controller
         ]);
 
         Service::create($validated);
-            return redirect('services.create');
+            return redirect('/services');
 
     }
 

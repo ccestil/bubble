@@ -32,5 +32,5 @@
         </div>
         <button type="submit" class="create-account-button">Create Account</button>
     </form>
-    <a href="{{ route('account.login') }}" class="login-link">Already have an account? <span style="color: #4299e1;">Log In</span></a>
+    <a href="{{ route('login') }}" class="login-link">Already have an account? <span style="color: #4299e1;">Log In</span></a>
 </div>

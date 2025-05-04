@@ -34,5 +34,5 @@
             <div>{{ session('status') }}</div>
         @endif
     </form>
-    <a href="#" class="signup-link">Don't have an account? <span style="color: #4299e1;">Sign Up</span></a>
+    <a href="{{ route('users.register') }}" class="signup-link">Don't have an account? <span style="color: #4299e1;">Sign Up</span></a>
 </div>
