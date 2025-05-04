@@ -1,5 +1,6 @@
 <x-customers.layout>
 
-    <x-customers.history />
+
+    <x-customers.laundry-details />
 
 </x-customers.layout>

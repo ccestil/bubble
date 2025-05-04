@@ -7,7 +7,7 @@
         <ul class="nav-links">
             <li><x-landing.navlink href="" class="btn">Home</x-landing.navlink></li>
             <li><x-landing.navlink href="" class="btn">Contact Us</x-landing.navlink></li>
-            <li><x-landing.navlink href="{{ route('account.login') }}" class="btn btn-secondary">Sign in</x-landing.navlink></li>
+            <li><x-landing.navlink href="{{ route('login') }}" class="btn btn-secondary">Sign in</x-landing.navlink></li>
             <li><x-landing.navlink href="{{ route('users.register') }}" class="btn btn-primary">Register</x-landing.navlink></li>
 
         </ul>

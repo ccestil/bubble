@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 
 class UserController extends Controller
 {
@@ -33,16 +34,13 @@ class UserController extends Controller
         //
         $validated = $request->validate([
 
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'phone',
             'email' => 'required|email',
             'password' => 'required'
 
         ]);
 
         User::create($validated);
-        return redirect('/users.create');
+        return redirect('/login');
     }
 
     /**

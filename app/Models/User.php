@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employee::class);
     }
+
+    public function isAdmin()
+{
+    return $this->role === 'admin'; // Adjust based on your role implementation
+}
 }

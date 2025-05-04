@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Customer Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/customer-home.css') }}">
+
+    <style>
+        
+    </style>
+
 </head>
+
 <body>
 
-    {{--  --}}
+    <div class="navbar">
+        <div class="logo">Bubbleworks</div>
+        <div class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#">Chris ⚙️</a> 
+            {{-- make a drop down for log out and edit profile --}} 
+        
+        </div>
+    </div>
 
-    {{-- NAVBAR --}}
-    <x-customers.nav-bar> </x-customers.nav-bar>
+    <div class="container">
 
-    {{$slot}}
+        {{ $slot }}
+
+    </div>
+
 
 </body>
+
 </html>

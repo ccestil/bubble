@@ -1,0 +1,137 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f7fa;
+    max-width: 1280px;
+    margin: 0px auto;
+    color: #333;
+  }
+
+  /* Top Navbar */
+  .navbar {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #007bff;
+  }
+
+  .navbar .nav-links a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+
+  .table th, .table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .table th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+    color: #495057;
+  }
+
+  .table tr:nth-child(even) {
+    background-color: #f9fbfd;
+  }
+
+  .btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-view {
+    background-color: #e9f3ff;
+    color: #007bff;
+  }
+
+  .btn-view:hover {
+    background-color: #d0e7ff;
+  }
+
+  .btn-edit {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  .btn-edit:hover {
+    background-color: #c8e6c9;
+  }
+
+  .btn-delete {
+    background-color: #fdecea;
+    color: #d32f2f;
+  }
+
+  .btn-delete:hover {
+    background-color: #f8c1be;
+  }
+
+  .btn-toggle {
+    background-color: #f1f3f5;
+    color: #333;
+  }
+
+  .btn-toggle:hover {
+    background-color: #e2e6ea;
+  }
+
+  .details-card {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    display: none;
+  }
+
+  .details-card.active {
+    display: block;
+  }
