@@ -12,35 +12,35 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth', AdminMiddleware::class])->group(function () {
+
+
+Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/home', function () {
         return view('admin.dashboard');
     });
 
+    // ... other admin routes
+    Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
+    Route::get('/transactions', [TransactionController::class, 'index'])->name('admin.transaction');
+    Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+    Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
     Route::get('/customers', function () {
         return view('admin.customer');
     });
-
     Route::get('/employees', function () {
         return view('admin.employee');
     });
-
     Route::get('/inventory', function () {
         return view('admin.inventory');
     });
     Route::get('/services', function () {
         return view('admin.service');
     });
-
-
-
-    Route::get('/transactions', [TransactionController::class, 'index'])->name('admin.transaction');
-
-
-    // Service creation routes (only once within admin middleware if only admins can create)
-    Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
-    Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
 });
+
+Route::get('/unauthorized', function () {
+    return view('unauthorized');
+})->name('unauthorized');
 
 // User registration routes (outside admin middleware if customers can register)
 Route::get('/users/create', [UserController::class, 'create'])->name('users.register');
@@ -60,6 +60,7 @@ Route::post('/login', [AuthController::class, 'login']);
 // Admin Auth routes
 Route::get('/admin/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'adminLogin']);
+
 
 // Transaction routes
 Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');

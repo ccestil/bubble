@@ -14,6 +14,7 @@
 </nav>
 
 
-<div>
-    <button>Log Out</button>
-</div>
+<form action="{{ route('admin.logout') }}" method="POST">
+    @csrf
+    <button type="submit" class="btn btn-danger">Admin Logout</button>
+</form>

@@ -16,8 +16,13 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) { // Assuming you have an isAdmin() method in your User model
-            return redirect('/admin/login');
+        if (!Auth::check()) { // Check if the user is NOT logged in
+            return redirect('/unauthorized');
+        }
+
+        // If they are logged in, we still need to check if they are an admin
+        if (!Auth::user()->isAdmin()) {
+            return redirect('/unauthorized');
         }
 
         return $next($request);
