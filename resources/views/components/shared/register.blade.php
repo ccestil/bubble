@@ -6,6 +6,22 @@
         @csrf
 
         <div class="input-group">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}" placeholder="Enter your first name" required>
+            @error('first_name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="input-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" placeholder="Enter your last name" required>
+            @error('last_name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="input-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Enter your email" required>
             @error('email')

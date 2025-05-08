@@ -65,3 +65,4 @@ Route::post('/admin/login', [AuthController::class, 'adminLogin']);
 // Transaction routes
 Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
 Route::POST('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
+Route::get('/transactions/{transaction}/edit', [TransactionController::class, 'edit'])->name('transactions.edit'); // Add this

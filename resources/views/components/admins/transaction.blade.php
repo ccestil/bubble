@@ -1,69 +1,59 @@
 <div class="transaction-header">
     <h1 class="transaction-title">🛒 Transactions</h1>
     <div class="total-transactions-inline">
-        <span>Total transactions:</span> <strong>62</strong>
+        <span>Total transactions:</span> <strong>{{ $totalTransactions }}</strong>
     </div>
+    <a href="{{ route('transactions.create') }}" class="btn btn-primary">Add Transaction</a>
 </div>
 
-
-    <!-- Finished Transactions -->
-<h2 class="transaction-subtitle">✅ Finished</h2>
 <div class="transaction-list">
     <table>
         <thead>
             <tr>
                 <th>👤 Customer</th>
                 <th>📧 Service</th>
+                <th>⚖️ Weight</th>
                 <th>💰 Total Amount</th>
+                <th>🧺 Laundry Status</th>
+                <th>💸 Payment Status</th>
                 <th>⚙️ Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="transaction-name">Chris</td>
-                <td>Drop-off</td>
-                <td>200.00</td>
-                <td class="action-buttons">
-                    <button class="edit">✏️ Edit</button>
-                    <button class="delete">🗑️ Delete</button>
-                    <button class="pay">💳 Pay</button>
-                </td>
-            </tr>
-            <!-- More finished rows -->
+            @forelse($transactions as $transaction)
+                <tr>
+                    <td class="transaction-name">
+                        {{ $transaction->customer->user->first_name }} {{ $transaction->customer->user->last_name }}
+                    </td>
+                    <td>{{ $transaction->service->service_name }}</td>
+                    <td>{{ number_format($transaction->weight, 2) }} KG</td>
+                    <td>{{ number_format($transaction->total_amount, 2) }}</td>
+                    <td>{{ $transaction->laundry_status }}</td>
+                    <td>{{ $transaction->payment_status }}</td>
+                    <td class="action-buttons">
+                        <a href="{{ route('transactions.edit', $transaction->id) }}"
+                            class="edit btn btn-primary btn-sm">✏️ Edit</a>
+                        {{-- <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST"
+                            style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete btn btn-danger btn-sm">🗑️ Delete</button>
+                        </form>
+                        @if ($transaction->payment_status == 'Unpaid')
+                            <a href="{{ route('transactions.pay', $transaction->id) }}"
+                                class="pay btn btn-success btn-sm">💳 Pay</a>
+                        @endif --}}
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="7">No transactions found.</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 </div>
 
-<!-- Washing Transactions -->
-<h2 class="transaction-subtitle">🧺 Washing</h2>
-<div class="transaction-list">
-    <table>
-        <thead>
-            <tr>
-                <th>👤 Customer</th>
-                <th>📧 Service</th>
-                <th>💰 Total Amount</th>
-                <th>⚙️ Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="transaction-name">Alex</td>
-                <td>Pick-up</td>
-                <td>150.00</td>
-                <td class="action-buttons">
-                    <button class="edit">✏️ Edit</button>
-                    <button class="delete">🗑️ Delete</button>
-                </td>
-            </tr>
-            <!-- More washing rows -->
-        </tbody>
-    </table>
-</div>
-
-    @push('styles')
+@push('styles')
     <link rel="stylesheet" href="{{ asset('css/transaction.css') }}">
-    @endpush
-
-    
-</div>
+@endpush

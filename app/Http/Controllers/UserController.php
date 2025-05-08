@@ -33,16 +33,15 @@ class UserController extends Controller
     {
         //
         $validated = $request->validate([
-
-            'email' => 'required|email',
-            'password' => 'required'
-
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users', // Ensure email is unique
+            'password' => 'required|min:8|confirmed', // Add confirmation rule
         ]);
 
         User::create($validated);
         return redirect('/login');
     }
-
     /**
      * Display the specified resource.
      */

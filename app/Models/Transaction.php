@@ -16,7 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
             'employee_id',
             'weight',
             'total_amount',
-            'payment_status'
+            'payment_status',
+            'laundry_status'// and this
 
         ];
 

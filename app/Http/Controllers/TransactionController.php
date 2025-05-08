@@ -16,9 +16,15 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        // You'll implement this later to show a list of transactions
-        return view('admin.transaction');
+        $transactions = Transaction::with('customer.user', 'service')->get();
+        $totalTransactions = $transactions->count();
+    
+        return view('admin.transaction', compact('totalTransactions', 'transactions'));
     }
+    
+    
+    
+    
 
     /**
      * Show the form for creating a new resource.
@@ -47,8 +53,8 @@ class TransactionController extends Controller
             'customer_id' => 'required|exists:customers,id',
             'service_id' => 'required|exists:services,id',
             'employee_id' => 'required|exists:employees,id',
-            'weight' => 'required|numeric|min:0',
-            'payment_status' => 'required|string|max:255',
+            'laundry_status' => 'required|in:Washing,Drying,Ready for Pickup,Completed', // <-- Add this
+            'payment_status' => 'required|in:Paid,Unpaid', // <-- Add this
         ]);
 
         $service = Service::findOrFail($request->service_id);
@@ -76,15 +82,36 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
+        $customers = Customer::with('user')->get()->map(function ($customer) {
+            return [
+                'id' => $customer->id,
+                'text' => $customer->user->first_name . ' ' . $customer->user->last_name . ' (' . $customer->user->email . ')',
+            ];
+        });
+    
+        $services = Service::all()->pluck('service_name', 'id');
+        $employees = Employee::with('user')->get()->pluck('user.first_name', 'id');
+    
+        return view('admin.transactions.edit', compact('transaction', 'customers', 'services', 'employees'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, Transaction $transaction)
     {
-        //
+        $request->validate([
+            'customer_id' => 'required|exists:customers,id',
+            'service_id' => 'required|exists:services,id',
+            'employee_id' => 'required|exists:employees,id',
+            'weight' => 'required|numeric|min:0',
+            'laundry_status' => 'required|in:Washing,Drying,Ready for Pickup,Completed',
+            'payment_status' => 'required|in:Paid,Unpaid',
+        ]);
+    
+        $service = Service::findOrFail($request->service_id);
+        $totalAmount = $request->weight * $service->price_per_kg;
+    
+        $transaction->update(array_merge($request->all(), ['total_amount' => $totalAmount]));
+    
+        return redirect()->route('admin.transaction')->with('success', 'Transaction updated successfully!');
     }
 
     /**
