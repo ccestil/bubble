@@ -1,0 +1,101 @@
+/* --- Create Employee Form Styles (create-employee.css) --- */
+
+.employee-form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    color: #1f2937;
+    background: linear-gradient(to bottom right, #f8fafc, #ffffff);
+}
+
+.employee-form-container h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #1f2937;
+    background-color: #f8fafc;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.text-danger {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.create-account-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.create-account-button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+    .employee-form-container {
+        padding: 1.5rem;
+    }
+
+    .employee-form-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .input-group input,
+    .input-group select {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .create-account-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}

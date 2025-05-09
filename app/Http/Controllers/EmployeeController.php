@@ -3,63 +3,53 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
+
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+
     public function index()
     {
-        //
+        $employees = Employee::with('user')->get();
+        return view('admin.employee', compact('employees'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+        return view('auth.create-employee');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'first_name'    => 'required|string|max:255',
+            'last_name'     => 'required|string|max:255',
+            'email'         => 'required|email|unique:users,email',
+            'role_task'     => 'required|string|max:255',
+            'work_shift'    => 'required',
+        ]);
+    
+        // Create the User without a password
+        $user = User::create([
+            'first_name' => $validated['first_name'],
+            'last_name'  => $validated['last_name'],
+            'email'      => $validated['email'],
+            'password'   => bcrypt('defaultpassword'), // set a random default or generate a token if needed
+        ]);
+    
+        // Create the Employee linked to User
+        Employee::create([
+            'user_id'    => $user->id,
+            'role_task'  => $validated['role_task'],
+            'work_shift' => $validated['work_shift'],
+        ]);
+    
+        return redirect()->back()->with('success', 'Employee created successfully!');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Employee $employee)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Employee $employee)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Employee $employee)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Employee $employee)
-    {
-        //
-    }
+    
 }

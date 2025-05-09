@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\CustomerTransactionController;
+use App\Http\Controllers\EmployeeController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
@@ -27,6 +28,7 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/transactions', [TransactionController::class, 'index'])->name('admin.transaction');
     Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
     Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
+    
     // Transaction routes
     Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
     Route::POST('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
@@ -36,15 +38,21 @@ Route::middleware([AdminMiddleware::class])->group(function () {
         'destroy' => 'transactions.destroy',
     ]);
 
+    // EMPLOYEE ROUTES
+    Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index'); // optional: list employees
+    Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
+    Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');
+
+
     Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
 
 
     // Route::get('/customers', function () {
     //     return view('admin.customer');
     // });
-    Route::get('/employees', function () {
-        return view('admin.employee');
-    });
+    // Route::get('/employees', function () {
+    //     return view('admin.employee');
+    // });
     Route::get('/inventory', function () {
         return view('admin.inventory');
     });

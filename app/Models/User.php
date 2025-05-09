@@ -25,6 +25,7 @@ class User extends Authenticatable
         'phone',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -53,9 +54,11 @@ class User extends Authenticatable
     protected static function booted()
     {
         static::created(function ($user) {
-            Customer::create([
-                'user_id' => $user->id,
-            ]);
+            if ($user->role === 'customer') {
+                Customer::create([
+                    'user_id' => $user->id,
+                ]);
+            }
         });
     }
 
