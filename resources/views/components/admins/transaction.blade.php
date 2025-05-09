@@ -3,7 +3,7 @@
     <div class="total-transactions-inline">
         <span>Total transactions:</span> <strong>{{ $totalTransactions }}</strong>
     </div>
-    <a href="{{ route('transactions.create') }}" class="btn btn-primary">Add Transaction</a>
+    {{-- <a href="{{ route('transactions.create') }}" class="btn btn-primary">Add Transaction</a> --}}
 </div>
 
 <div class="transaction-list">
@@ -33,12 +33,12 @@
                     <td class="action-buttons">
                         <a href="{{ route('transactions.edit', $transaction->id) }}"
                             class="edit btn btn-primary btn-sm">✏️ Edit</a>
-                        {{-- <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST"
+                        <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST"
                             style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="delete btn btn-danger btn-sm">🗑️ Delete</button>
-                        </form>
+                        {{-- </form>
                         @if ($transaction->payment_status == 'Unpaid')
                             <a href="{{ route('transactions.pay', $transaction->id) }}"
                                 class="pay btn btn-success btn-sm">💳 Pay</a>

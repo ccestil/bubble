@@ -7,9 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/customer-home.css') }}">
 
-    <style>
-        
-    </style>
+    @stack('styles')
 
 </head>
 
@@ -17,20 +15,22 @@
 
     <div class="navbar">
         <div class="logo">Bubbleworks</div>
+
+        <!-- Hamburger Icon -->
+
         <div class="nav-links">
             <a href="#">Dashboard</a>
-            <a href="#">Chris ⚙️</a> 
-            {{-- make a drop down for log out and edit profile --}} 
-        
+            <a href="#">Chris ⚙️</a>
+            {{-- make a drop down for log out and edit profile --}}
         </div>
     </div>
+
 
     <div class="container">
 
         {{ $slot }}
 
     </div>
-
 
 </body>
 

@@ -11,8 +11,8 @@
 
             <div class="form-group">
                 <label for="customer_search" class="form-label">Search Customer:</label>
-                <input type="text" class="form-control" id="customer_search"
-                    placeholder="Enter customer name" onkeyup="filterCustomers()">
+                <input type="text" class="form-control" id="customer_search" placeholder="Enter customer name"
+                    onkeyup="filterCustomers()">
             </div>
 
             <div class="form-group">
@@ -93,9 +93,13 @@
                 <label for="payment_status" class="form-label">Payment Status:</label>
                 <select class="form-select" id="payment_status" name="payment_status" required>
                     <option value="">Select Status</option>
-                    <option value="Unpaid" {{ $transaction->payment_status == 'Unpaid' ? 'selected' : '' }}>Unpaid
+                    <option value="Unpaid"
+                        {{ old('payment_status', $transaction->payment_status) == 'Unpaid' ? 'selected' : '' }}>Unpaid
                     </option>
-                    <option value="Paid" {{ $transaction->payment_status == 'Paid' ? 'selected' : '' }}>Paid</option>
+                    <option value="Paid"
+                        {{ old('payment_status', $transaction->payment_status) == 'Paid' ? 'selected' : '' }}>Paid
+                    </option>
+
                 </select>
                 @error('payment_status')
                     <div class="alert alert-danger">{{ $message }}</div>

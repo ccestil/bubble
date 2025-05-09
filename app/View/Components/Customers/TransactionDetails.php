@@ -6,20 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Dashboard extends Component
+class TransactionDetails extends Component
 {
     /**
      * Create a new component instance.
      */
-    public $user;
-    public $customer;
-
-
-    public function __construct($user, $customer)
+    public function __construct()
     {
         //
-        $this->user = $user;
-        $this->customer = $customer;
     }
 
     /**
@@ -27,6 +21,6 @@ class Dashboard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.customers.dashboard');
+        return view('components.customers.transaction-details');
     }
 }

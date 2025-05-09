@@ -12,9 +12,16 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
-        return view('customer.dashboard');
+        $customers = Customer::with(['user', 'transactions' => function ($query) {
+            $query->where('laundry_status', '!=', 'Completed');
+        }])->get();
+    
+        $totalCustomers = $customers->count();
+    
+        return view('admin.customer', compact('customers', 'totalCustomers'));
     }
+    
+    
 
     /**
      * Show the form for creating a new resource.

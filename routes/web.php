@@ -5,6 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CustomerDashboardController;
+use App\Http\Controllers\CustomerTransactionController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -24,9 +27,21 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/transactions', [TransactionController::class, 'index'])->name('admin.transaction');
     Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
     Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
-    Route::get('/customers', function () {
-        return view('admin.customer');
-    });
+    // Transaction routes
+    Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
+    Route::POST('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
+    Route::get('/transactions/{transaction}/edit', [TransactionController::class, 'edit'])->name('transactions.edit'); // Add this
+    Route::put('/transactions/{transaction}', [TransactionController::class, 'update'])->name('transactions.update');
+    Route::resource('admin/transactions', TransactionController::class)->names([
+        'destroy' => 'transactions.destroy',
+    ]);
+
+    Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
+
+
+    // Route::get('/customers', function () {
+    //     return view('admin.customer');
+    // });
     Route::get('/employees', function () {
         return view('admin.employee');
     });
@@ -47,11 +62,12 @@ Route::get('/users/create', [UserController::class, 'create'])->name('users.regi
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
 Route::middleware(['auth'])->group(function () {
-    // Customer routes (only once)
-    Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
-    // Add other protected customer routes here
-    // Route::get('/customer/profile', [CustomerController::class, 'profile'])->name('customer.profile');
+    Route::get('/customer', [CustomerDashboardController::class, 'index'])->name('customer.index');
+    Route::get('/customer/profile', [CustomerDashboardController::class, 'profile'])->name('customer.profile');
+    Route::get('/customer/transactions/{transaction}', [CustomerTransactionController::class, 'show'])->name('customer.transactions.show');
+    Route::get('/customer/history', [CustomerTransactionController::class, 'history'])->name('customer.transactions.history');
 });
+
 
 // Auth routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -66,3 +82,4 @@ Route::post('/admin/login', [AuthController::class, 'adminLogin']);
 Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
 Route::POST('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
 Route::get('/transactions/{transaction}/edit', [TransactionController::class, 'edit'])->name('transactions.edit'); // Add this
+Route::put('/transactions/{transaction}', [TransactionController::class, 'update'])->name('transactions.update');

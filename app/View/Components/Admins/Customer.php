@@ -2,25 +2,22 @@
 
 namespace App\View\Components\Admins;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Customer extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $customers;
+    public $totalCustomers;
+
+    public function __construct($customers, $totalCustomers)
     {
-        //
+        $this->customers = $customers;
+        $this->totalCustomers = $totalCustomers;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.admins.customer');
     }
 }
+
