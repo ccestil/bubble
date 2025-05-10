@@ -31,8 +31,15 @@
                     <td>{{ $employee->work_shift }}</td>
                     <td>{{ $employee->role_task }}</td>
                     <td class="action-buttons">
-                        <button class="edit">✏️ Edit</button>
-                        <button class="delete">🗑️ Delete</button>
+                        <button class="edit"><a href="{{ route('employees.edit', $employee) }}">✏️ Edit </a></button>
+                        <form action="{{ route('employees.destroy', $employee) }}" method="POST"
+                            style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="delete"
+                                onclick="return confirm('Are you sure you want to delete this employee? This cannot be undone.)">🗑️
+                                Delete</button>
+                        </form>
                     </td>
                 </tr>
             @empty

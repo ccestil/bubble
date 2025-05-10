@@ -13,7 +13,6 @@
                 <th>📧 Email</th>
                 <th>📱 Phone</th>
                 <th>🧺 Active Laundry</th>
-                <th>⚙️ Action</th>
             </tr>
         </thead>
         <tbody>

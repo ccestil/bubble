@@ -8,9 +8,10 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\CustomerDashboardController;
 use App\Http\Controllers\CustomerTransactionController;
 use App\Http\Controllers\EmployeeController;
-
+use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\PaymentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,16 +20,14 @@ Route::get('/', function () {
 
 
 Route::middleware([AdminMiddleware::class])->group(function () {
-    Route::get('/home', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/home', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
     // ... other admin routes
     Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
     Route::get('/transactions', [TransactionController::class, 'index'])->name('admin.transaction');
     Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
     Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
-    
+
     // Transaction routes
     Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
     Route::POST('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
@@ -42,9 +41,17 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index'); // optional: list employees
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
     Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');
+    Route::get('/employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+    Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update'); // For updating the edited employee
+    Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
 
 
     Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
+
+
+    // Routes for displaying the payment form and processing the payment
+    Route::get('/transactions/{transaction}/pay', [PaymentController::class, 'showPaymentForm'])->name('admin.transactions.pay');
+    Route::post('/transactions/{transaction}/process-payment', [PaymentController::class, 'processPayment'])->name('admin.transactions.process-payment');
 
 
     // Route::get('/customers', function () {

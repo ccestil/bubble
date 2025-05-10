@@ -53,13 +53,9 @@ class User extends Authenticatable
 
     protected static function booted()
     {
-        static::created(function ($user) {
-            if ($user->role === 'customer') {
-                Customer::create([
-                    'user_id' => $user->id,
-                ]);
-            }
-        });
+
+        parent::booted();
+
     }
 
     public function customer(): HasOne

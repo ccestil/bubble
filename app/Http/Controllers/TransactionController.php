@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Payment;
 
 class TransactionController extends Controller
 {
@@ -53,17 +54,26 @@ class TransactionController extends Controller
             'customer_id' => 'required|exists:customers,id',
             'service_id' => 'required|exists:services,id',
             'employee_id' => 'required|exists:employees,id',
-            'laundry_status' => 'required|in:Washing,Drying,Ready for Pickup,Completed', // <-- Add this
-            'payment_status' => 'required|in:Paid,Unpaid', // <-- Add this
+            'laundry_status' => 'required|in:Washing,Drying,Ready for Pickup,Completed',
+            'payment_status' => 'required|in:Paid,Unpaid',
         ]);
-
+    
         $service = Service::findOrFail($request->service_id);
         $totalAmount = $request->weight * $service->price_per_kg;
-
-        Transaction::create(array_merge($request->all(), ['total_amount' => $totalAmount]));
-    return redirect()->route('admin.transaction')->with('success', 'Transaction created successfully!');
-
-
+    
+        $transaction = Transaction::create(array_merge($request->all(), ['total_amount' => $totalAmount]));
+    
+        // Create the Payment record ONLY if the transaction is marked as 'Paid'
+        if ($request->payment_status === 'Paid') {
+            Payment::create([
+                'transaction_id' => $transaction->id,
+                'payment_amount' => $totalAmount,
+                'payment_method' => 'Cash', // Hardcoded for now (you might want to get this from the request)
+                'employee_id'    => $request->employee_id,
+            ]);
+        }
+    
+        return redirect()->route('admin.transaction')->with('success', 'Transaction created successfully!');
     }
 
 

@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('employee_id')->constrained('employees');
             $table->float('weight');
             $table->decimal('total_amount', 8, 2);
-            $table->string('payment_status');
+            $table->enum('payment_status', ['Paid', 'Unpaid'])->default('Unpaid');  //  <----  Corrected
+            $table->enum('laundry_status', ['Washing', 'Drying', 'Ready for Pickup', 'Completed'])->default('Washing'); // Added laundry_status here too
             $table->timestamps();
         });
     }

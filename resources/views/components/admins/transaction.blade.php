@@ -38,11 +38,11 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="delete btn btn-danger btn-sm">🗑️ Delete</button>
-                        {{-- </form>
-                        @if ($transaction->payment_status == 'Unpaid')
-                            <a href="{{ route('transactions.pay', $transaction->id) }}"
-                                class="pay btn btn-success btn-sm">💳 Pay</a>
-                        @endif --}}
+                        </form>
+                        @if ($transaction->payment_status === 'Unpaid')
+                            <a href="{{ route('admin.transactions.pay', $transaction) }}"
+                                class="btn btn-sm btn-success">Process Payment</a>
+                        @endif
                     </td>
                 </tr>
             @empty

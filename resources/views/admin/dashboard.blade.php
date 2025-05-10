@@ -1,6 +1,11 @@
 <x-admins.layout>
-
-    <x-admins.dashboard> </x-admins.dashboard>
-
-
+    <x-admins.dashboard
+        :time-period="$timePeriod"
+        :total-revenue="$totalRevenue"
+        :revenue-breakdown="$revenueBreakdown"
+        :total-transactions="$totalTransactions"
+        :active-transactions="$activeTransactions"
+        :total-customers="$totalCustomers"
+        :daily-average-transactions="$dailyAverageTransactions"
+    />
 </x-admins.layout>
