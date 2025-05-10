@@ -1,7 +1,7 @@
 <x-shared.layout> {{-- Or you can create a separate admin layout --}}
     <div class="container">
-        <div class="logo">Admin Panel</div>
-        <p class="welcome-text">Admin Login</p>
+        <div class="logo">Bubbleworks</div>
+        <p class="welcome-text">Welcome back!</p>
         <form method="POST" action="{{ route('admin.login') }}">
             @csrf
 

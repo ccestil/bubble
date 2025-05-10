@@ -1,0 +1,103 @@
+/* public/css/process-payment.css */
+
+.payment-form-container {
+    max-width: 600px; /* Adjust as needed */
+    margin: 32px auto;
+    margin-top: 0px;
+    font-family: 'Inter', sans-serif;
+    color: #1f2937;
+    line-height: 1.5;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.payment-form-container h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.payment-form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.payment-form-container input[type="number"],
+.payment-form-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    color: #374151;
+}
+
+.payment-form-container input[type="number"]:focus,
+.payment-form-container select:focus {
+    outline: none;
+    border-color: #87CEEB; /* Light blue focus color */
+    box-shadow: 0 0 0 2px rgba(173, 216, 230, 0.25); /* Subtle box shadow */
+}
+
+.payment-form-container .alert-danger {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: -8px;
+    margin-bottom: 16px;
+}
+
+.payment-form-container .btn-primary,
+.payment-form-container .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+}
+
+.payment-form-container .btn-primary {
+    background-color: #ADD8E6; /* Light blue */
+    color: #1f2937;
+    border-color: #ADD8E6;
+}
+
+.payment-form-container .btn-primary:hover {
+    background-color: #87CEEB;
+    border-color: #87CEEB;
+}
+
+.payment-form-container .btn-secondary {
+    background-color: #e5e7eb; /* Light gray */
+    color: #374151;
+    border-color: #e5e7eb;
+}
+
+.payment-form-container .btn-secondary:hover {
+    background-color: #d1d5db;
+    border-color: #d1d5db;
+}
+
+/* Responsive adjustments (example) */
+@media (max-width: 768px) {
+    .payment-form-container {
+        margin-left: 16px;
+        margin-right: 16px;
+        padding: 16px;
+    }
+
+    .payment-form-container h2 {
+        font-size: 1.5rem;
+    }
+}

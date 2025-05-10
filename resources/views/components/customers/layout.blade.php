@@ -19,7 +19,6 @@
         <!-- Hamburger Icon -->
 
         <div class="nav-links">
-            <a href="#">Dashboard</a>
             <a href="#">Chris ⚙️</a>
             {{-- make a drop down for log out and edit profile --}}
         </div>

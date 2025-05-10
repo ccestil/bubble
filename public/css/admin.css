@@ -18,6 +18,8 @@ body {
 .container {
     display: flex;
     height: 100vh;
+    max-width: 100%; /* Let container take full width within body */
+    margin: 0 auto;
     background-color: aliceblue;
 }
 
@@ -53,6 +55,8 @@ body {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
+    min-width: 800px; /* Ensure main content doesn't get too narrow */
+
 }
 
 .topbar {
@@ -204,3 +208,23 @@ body {
 .nav-links li:nth-child(4) a::before { content: "🧍 "; }
 .nav-links li:nth-child(5) a::before { content: "📦 "; }
 .nav-links li:nth-child(6) a::before { content: "🫧 "; }
+
+/* admin.css */
+/* ... existing body and container styles ... */
+
+@media (min-width: 1920px) {
+    body {
+        max-width: 1500px; /* Wider max-width for Full HD and larger */
+    }
+
+    /* You can add specific table adjustments here if needed for wider screens */
+    /* For example, you could slightly increase font size or padding */
+    /* .transaction-list th, */
+    /* .transaction-list td { */
+    /* padding: 14px 12px; */
+    /* font-size: 0.9rem; */
+    /* } */
+}
+
+/* transaction.css */
+/* ... existing table styles ... */

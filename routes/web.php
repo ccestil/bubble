@@ -89,8 +89,8 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 // Admin Auth routes
-Route::get('/admin/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
-Route::post('/admin/login', [AuthController::class, 'adminLogin']);
+Route::get('/admin', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
+Route::post('/admin', [AuthController::class, 'adminLogin']);
 
 
 // Transaction routes

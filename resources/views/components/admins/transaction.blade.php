@@ -32,16 +32,16 @@
                     <td>{{ $transaction->payment_status }}</td>
                     <td class="action-buttons">
                         <a href="{{ route('transactions.edit', $transaction->id) }}"
-                            class="edit btn btn-primary btn-sm">✏️ Edit</a>
+                           class="edit btn btn-sm" title="Edit">✏️</a>
                         <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST"
-                            style="display:inline;">
+                              style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="delete btn btn-danger btn-sm">🗑️ Delete</button>
+                            <button type="submit" class="delete btn btn-sm" title="Delete">🗑️</button>
                         </form>
                         @if ($transaction->payment_status === 'Unpaid')
                             <a href="{{ route('admin.transactions.pay', $transaction) }}"
-                                class="btn btn-sm btn-success">Process Payment</a>
+                               class="btn btn-sm btn-success" title="Process Payment">💰</a>
                         @endif
                     </td>
                 </tr>

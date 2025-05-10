@@ -33,9 +33,7 @@
         
     </table>
 
-    <h2>⏰ History
-        <a href="/customer/history" class="btn btn-secondary btn-sm">View</a>
-    </h2>
+
     @push('styles')
     <link rel="stylesheet" href="{{ asset('css/customer-dashboard.css') }}">
     @endpush

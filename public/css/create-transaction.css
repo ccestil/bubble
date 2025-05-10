@@ -23,6 +23,10 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 720px;
     margin: 3rem auto;
+    margin-top: 0px;
+    display: flex; /* Enable Flexbox for the container */
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Make items take full width */
 }
 
 h2 {
@@ -30,6 +34,12 @@ h2 {
     font-weight: 700;
     color: var(--form-primary-color);
     margin-bottom: 2rem;
+    text-align: center; /* Center the heading */
+    width: 100%; /* Ensure it spans the full width */
+}
+
+.transaction-form {
+    width: 100%; /* Make the form take full width */
 }
 
 .transaction-form .form-label {
