@@ -11,7 +11,7 @@
 }
 
 .transaction-list thead {
-    background-color: #67aefa; /* Indigo */
+    background-color: #9abddc; /* Indigo */
     color: white;
 }
 
@@ -68,7 +68,7 @@
     margin-bottom: 12px;
     font-size: 20px;
     font-weight: 600;
-    color: #4F46E5;
+    color: grey;
 }
 
 /* Table wrapper spacing */
@@ -86,9 +86,10 @@
 
 /* Welcome message */
 h3 {
-    font-size: 24px;
+    font-size: 28px;
+    font-family: "Fredoka", sans-serif;
     font-weight: 700;
-    color: #111827;
+    color: #81a3c2;
     margin-bottom: 16px;
 }
 

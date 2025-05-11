@@ -8,8 +8,8 @@
         <li><a href="/transactions">Transactions</a></li>
         <li><a href="/customers">Customers</a></li>
         <li><a href="/employees">Employees</a></li>
-        <li><a href="/inventory">Inventory</a></li>
-        <li><a href="/services">Services</a></li>
+        {{-- <li><a href="/inventory">Inventory</a></li> --}}
+        <li><a href="/admin/services">Services</a></li>
     </ul>
 </nav>
 
@@ -22,6 +22,6 @@
             <polyline points="16 17 21 12 16 7"></polyline>
             <line x1="21" y1="12" x2="13" y2="12"></line>
         </svg>
-        LOGOUT
+        Log Out
     </button>
 </form>

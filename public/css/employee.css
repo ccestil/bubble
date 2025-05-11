@@ -20,7 +20,7 @@
 }
 
 .employee-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #1f2937;
     margin: 0;
@@ -35,22 +35,7 @@
 
 
 
-.employee-action-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-}
 
-.employee-action-header .total-employees {
-    background: #fff;
-    padding: 16px 24px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    border: 1px solid #e5e7eb;
-}
 
 .employee-action-header .total-employees p {
     margin: 0;
@@ -141,39 +126,61 @@
     color: #1f2937;
 }
 
+
+
 .employee-list .action-buttons {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    align-items: center;
+    text-align: left; /* Align content to the left */
+    white-space: nowrap; /* Prevent buttons from wrapping */
 }
 
+.employee-list .action-buttons a,
 .employee-list .action-buttons button {
-    padding: 8px 16px;
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    font-size: 0.875rem;
     font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 30px;
+    height: 30px;
+    margin-right: 4px; /* Add a little spacing between buttons */
     cursor: pointer;
-    background: #f1f5f9;
-    color: #64748b;
 }
 
-.employee-list .action-buttons button:hover {
-    background: #3b82f6;
-    color: white;
-    border-color: #3b82f6;
+.employee-list .action-buttons .edit {
+    background-color: #ADD8E6; /* Your light blue */
+    color: #1f2937;
+    border: 1px solid #ADD8E6;
+}
+
+.employee-list .action-buttons .edit:hover {
+    background-color: #87CEEB; /* Slightly darker hover */
+    border-color: #87CEEB;
 }
 
 .employee-list .action-buttons .delete {
-    background: #fee2e2;
-    color: #ef4444;
-    border-color: #ef4444;
+    background-color: #f87171; /* Softer red */
+    color: white;
+    border: 1px solid #f87171;
 }
 
 .employee-list .action-buttons .delete:hover {
-    background: #ef4444;
-    color: white;
+    background-color: #ef4444;
+    border-color: #ef4444;
+}
+
+.employee-list .action-buttons .btn-success { /* Process Payment */
+    background-color: #86efac; /* Softer green */
+    color: #1f2937;
+    border: 1px solid #86efac;
+}
+
+.employee-list .action-buttons .btn-success:hover {
+    background-color: #4ade80;
+    border-color: #4ade80;
 }
 
 .employee-empty-state {

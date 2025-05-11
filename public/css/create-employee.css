@@ -59,22 +59,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #3b82f6;
+    background-color: #799dbd;;
     color: white;
-    border: none;
     padding: 12px 24px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    color: inherit;
     width: 100%;
     font-size: 1.1rem;
 }
 
 .create-account-button:hover {
-    background: #2563eb;
+    background: #f1f1f1;
+    color: #799dbd;;
     transform: translateY(-2px);
 }
 

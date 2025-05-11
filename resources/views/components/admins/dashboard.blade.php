@@ -10,7 +10,7 @@
                     <option value="year" {{ $timePeriod === 'year' ? 'selected' : '' }}>Yearly</option>
                 </select>
             </form>
-            
+
         </div>
 
         <div class="revenue-cards">
@@ -22,16 +22,16 @@
 
             {{-- Breakdown Card --}}
             <div class="card breakdown-card">
-                <p><strong>📊 Revenue Breakdown</strong></p>
+                <p class="widget-header">📊 Revenue Breakdown</p>
                 <div class="breakdown-row">
-                    @foreach($revenueBreakdown as $item)
+                    @foreach ($revenueBreakdown as $item)
                         <p>{{ $item['service_name'] }}</p>
                     @endforeach
                 </div>
 
                 <div class="breakdown-row amount">
-                    @foreach($revenueBreakdown as $item)
-                        <h2>{{ number_format($item['total_revenue'], 2) }}</h2>
+                    @foreach ($revenueBreakdown as $item)
+                        <h2 class="widget-value">{{ number_format($item['total_revenue'], 2) }}</h2>
                     @endforeach
                 </div>
             </div>
@@ -39,14 +39,14 @@
     </div>
 
     {{-- Metrics Section --}}
-    <div class="metrics-section">
+    {{-- <div class="metrics-section">
         <div class="section-header">
             <h3 class="metric-title-trx">🧾 Transactions</h3>
             <h3 class="metric-title-cus">👥 Customers</h3>
-            <h3 class="metric-title-inv">📦 Inventory</h3>
-        </div>
+            {{-- <h3 class="metric-title-inv">📦 Inventory</h3> --}}
+    {{-- </div> --}}
 
-        <div class="metrics-grid">
+    {{-- <div class="metrics-grid">
             <div class="card small-card">
                 <p class="card-title">Total Transactions</p>
                 <h2>{{ $totalTransactions }}</h2>
@@ -62,9 +62,49 @@
             <div class="card small-card">
                 <p class="card-title">Daily Average</p>
                 <h2>{{ number_format($dailyAverageTransactions, 2) }}</h2>
-            </div>
+            </div> --}}
 
-            <div class="card small-card">
+    <div class="dashboard-widgets">
+        <div class="transactions-section">
+            <div class="widget-header">
+                <i class="fas fa-file-alt"></i>🧾 Transactions
+            </div>
+            <div class="widget-card">
+                <div class="widget-title">Total Transactions</div>
+                <div class="widget-value">
+                    <h2>{{ $totalTransactions }}</h2>
+
+                </div>
+            </div>
+            <div class="widget-card">
+                <div class="widget-title">Active Transactions</div>
+                <div class="widget-value">
+                    <h2>{{ $activeTransactions }}</h2>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="customers-section">
+            <div class="widget-header">
+                <i class="fas fa-users"></i>👥 Customers
+            </div>
+            <div class="widget-card">
+                <div class="widget-title">Total Customers</div>
+                <div class="widget-value">
+                    <h2>{{ $totalCustomers }}</h2>
+                </div>
+            </div>
+            <div class="widget-card">
+                <div class="widget-title">Daily Average</div>
+                <div class="widget-value">
+                    <h2>{{ number_format($dailyAverageTransactions, 2) }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="card small-card">
                 <p class="card-title">Fabric Conditioner</p>
                 <h2 class="inline-header">120</h2>
                 <p class="inline-p">left</p>
@@ -72,8 +112,8 @@
             <div class="card small-card">
                 <p class="card-title">Detergent Powder</p>
                 <h2 class="inline-header">68</h2>
-                <p class="inline-p">left</p>
-            </div>
-        </div>
+                <p class="inline-p">left</p> --}}
+    </div>
+    </div>
     </div>
 </section>

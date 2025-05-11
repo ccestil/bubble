@@ -26,13 +26,19 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::post('/admin/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
     Route::get('/transactions', [TransactionController::class, 'index'])->name('admin.transaction');
     Route::get('/services/create', [ServiceController::class, 'create'])->name('services.create');
+    Route::get('/admin/services', [ServiceController::class, 'index'])->name('admin.services.index');
+    Route::put('/services/{service}', [ServiceController::class, 'update'])->name('admin.services.update');
     Route::post('/services', [ServiceController::class, 'store'])->name('services.store');
+    Route::get('/services/{service}/edit', [ServiceController::class, 'edit'])->name('services.edit');
+    Route::delete('/services/{service}/delete', [ServiceController::class, 'destroy'])->name('services.delete');
 
     // Transaction routes
+    Route::get('/transactions/search', [TransactionController::class, 'search'])->name('admin.transactions.search');
     Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
     Route::POST('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
     Route::get('/transactions/{transaction}/edit', [TransactionController::class, 'edit'])->name('transactions.edit'); // Add this
     Route::put('/transactions/{transaction}', [TransactionController::class, 'update'])->name('transactions.update');
+    Route::get('/admin/transactions/search-customers', [TransactionController::class, 'searchCustomers'])->name('admin.transactions.searchCustomers');
     Route::resource('admin/transactions', TransactionController::class)->names([
         'destroy' => 'transactions.destroy',
     ]);
@@ -87,6 +93,8 @@ Route::middleware(['auth'])->group(function () {
 // Auth routes
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 // Admin Auth routes
 Route::get('/admin', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');

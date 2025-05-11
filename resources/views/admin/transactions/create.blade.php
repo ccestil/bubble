@@ -3,15 +3,15 @@
         <link rel="stylesheet" href="{{ asset('css/create-transaction.css') }}">
     @endpush
 
-    <div class="container create-transaction-container mt-4">
-        <h2 class="mb-4 text-primary fw-semibold text-center">Create New Transaction</h2>
+    <div class="create-transaction-container mt-4">
+        <h2 class="mb-4 text-center">Create New Transaction</h2>
         <form action="{{ route('transactions.store') }}" method="POST" class="transaction-form">
             @csrf
 
             <div class="form-group">
                 <label for="customer_search" class="form-label">Search Customer:</label>
-                <input type="text" class="form-control" id="customer_search"
-                    placeholder="Enter customer name" onkeyup="filterCustomers()">
+                <input type="text" class="form-control" id="customer_search" placeholder="Enter customer name"
+                    onkeyup="filterCustomers()">
             </div>
 
             <div class="form-group">
@@ -20,7 +20,8 @@
                     <option value="">Select Customer</option>
                     @foreach ($customers as $customer)
                         <option value="{{ $customer['id'] }}" data-name="{{ $customer['text'] }}">
-                            {{ $customer['text'] }}</option>
+                            {{ $customer['text'] }}
+                        </option>
                     @endforeach
                 </select>
                 @error('customer_id')
@@ -32,8 +33,8 @@
                 <label for="service_id" class="form-label">Service:</label>
                 <select class="form-select" id="service_id" name="service_id" required>
                     <option value="">Select Service</option>
-                    @foreach ($services as $id => $name)
-                        <option value="{{ $id }}">{{ $name }}</option>
+                    @foreach ($services as $id => $serviceName)
+                        <option value="{{ $id }}">{{ $serviceName }}</option>
                     @endforeach
                 </select>
                 @error('service_id')
@@ -45,8 +46,8 @@
                 <label for="employee_id" class="form-label">Employee:</label>
                 <select class="form-select" id="employee_id" name="employee_id" required>
                     <option value="">Select Employee</option>
-                    @foreach ($employees as $id => $name)
-                        <option value="{{ $id }}">{{ $name }}</option>
+                    @foreach ($employees as $id => $employeeName)
+                        <option value="{{ $id }}">{{ $employeeName }}</option>
                     @endforeach
                 </select>
                 @error('employee_id')
@@ -55,33 +56,22 @@
             </div>
 
             <div class="form-group">
-                <label for="weight" class="form-label">Weight (in KG):</label>
-                <input type="number" class="form-control" id="weight" name="weight" step="0.01"
-                    placeholder="e.g., 2.5" required>
+                <label for="weight" class="form-label">Weight (KG):</label>
+                <input type="number" class="form-control" id="weight" name="weight" value="{{ old('weight') }}" required>
                 @error('weight')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label for="laundry_status" class="form-label">Laundry Status:</label>
-                <select class="form-select" id="laundry_status" name="laundry_status" required>
-                    <option value="">Select Status</option>
-                    <option value="Washing">Washing</option>
-                    <option value="Drying">Drying</option>
-                    <option value="Ready for Pickup">Ready for Pickup</option>
-                    <option value="Completed">Completed</option>
-                </select>
-                @error('laundry_status')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                <input type="text" class="form-control" id="laundry_status" name="laundry_status" value="Washing" readonly>
             </div>
 
             <div class="form-group">
                 <label for="payment_status" class="form-label">Payment Status:</label>
                 <select class="form-select" id="payment_status" name="payment_status" required>
-                    <option value="">Select Status</option>
-                    <option value="Unpaid">Unpaid</option>
+                    <option value="Unpaid" selected>Unpaid</option>
                     <option value="Paid">Paid</option>
                 </select>
                 @error('payment_status')

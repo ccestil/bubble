@@ -22,14 +22,6 @@
                     <td>{{ $customer->user->email }}</td>
                     <td>{{ $customer->user->phone }}</td>
                     <td>{{ $customer->transactions->count() }}</td>
-                    {{-- <td class="action-buttons">
-                        <a href="{{ route('customers.edit', $customer->id) }}" class="edit btn btn-primary btn-sm">✏️ Edit</a>
-                        <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="delete btn btn-danger btn-sm">🗑️ Delete</button>
-                        </form>
-                    </td> --}}
                 </tr>
             @empty
                 <tr>

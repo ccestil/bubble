@@ -27,12 +27,12 @@ body {
     display: flex; /* Enable Flexbox for the container */
     flex-direction: column; /* Stack items vertically */
     align-items: stretch; /* Make items take full width */
-}
+}   
 
 h2 {
     font-size: 1.75rem;
     font-weight: 700;
-    color: var(--form-primary-color);
+    color:#799dbd;
     margin-bottom: 2rem;
     text-align: center; /* Center the heading */
     width: 100%; /* Ensure it spans the full width */
@@ -93,20 +93,19 @@ h2 {
 }
 
 .transaction-form .btn-primary {
-    background-color: var(--form-primary-color);
-    border: 1px solid var(--form-primary-color);
-    color: #fff;
+    background-color: #799dbd;
+    color: #f1f1f1;
 }
 
 .transaction-form .btn-primary:hover {
-    background-color: var(--form-primary-hover);
-    border-color: var(--form-primary-hover);
+    background-color: #f1f1f1;
+    color:#799dbd ;
 }
 
 .transaction-form .btn-secondary {
-    background-color: var(--form-secondary-color);
-    border: 1px solid var(--form-secondary-color);
-    color: #fff;
+    background-color: #afc0cf;
+    color: #f1f1f1;
+    border: 1px solid #799dbd;
 }
 
 .transaction-form .btn-secondary:hover {

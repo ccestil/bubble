@@ -32,6 +32,14 @@
             </div>
 
             <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" value="{{ old('phone', isset($employee) ? $employee->user->phone : '') }}">
+                @error('phone')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="input-group">
                 <label for="role_task">Role</label>
                 <select id="role_task" name="role_task" required>
                     <option value="Employee" {{ old('role_task', isset($employee) ? $employee->role_task : '') === 'Employee' ? 'selected' : '' }}>Employee</option>

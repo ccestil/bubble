@@ -17,13 +17,6 @@
                 pop</p>
         </section>
 
-        <section>
-            <img src="" alt="">
-            <h2>Pick up and deliver</h2>
-            <p>Venmo hella actually photo booth yuccie, salvia wolf pinterest air plant tacos put a bird on it snackwave
-                pop</p>
-        </section>
-
         <!-- testimonials section -->
         <section>
             <div>
@@ -48,3 +41,6 @@
     </main> 
 
 </x-landing.layout>
+@push('styles')
+<link rel="stylesheet" href="{{ asset('css/section.css') }}">
+@endpush

@@ -75,6 +75,8 @@
     width: 30px;
     height: 30px;
     margin-right: 4px; /* Add a little spacing between buttons */
+    cursor: pointer;
+
 }
 
 .transaction-list .action-buttons .edit {

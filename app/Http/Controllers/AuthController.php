@@ -35,6 +35,17 @@ class AuthController extends Controller
             'email' => __('auth.failed'),
         ]);
     }
+    
+    public function logout(Request $request)
+    {
+        Auth::logout(); // Use the default guard
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 
     public function adminLogout(Request $request)
     {

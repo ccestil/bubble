@@ -57,6 +57,27 @@
             border: none;
             border-radius: 5px;
         }
+
+        .back-button-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .back-button {
+        padding: 10px 20px;
+        background-color: #3490dc; /* Blue */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none; /* Remove underline */
+        color: white; /* Ensure text color is white */
+    }
+
+    .back-button:hover {
+        background-color: #2779bd;
+    }
+    
         @media print {
             body {
                 margin: 0;
@@ -131,6 +152,10 @@
 
     <div class="print-button-container">
         <button class="print-button" onclick="window.print()">Print Receipt</button>
+    </div>
+
+    <div class="back-button-container">
+        <a href="{{ route('admin.transaction') }}" class="back-button">Back to Transactions</a>
     </div>
 
     <script>

@@ -30,6 +30,7 @@ class EmployeeController extends Controller
             'first_name'    => 'required|string|max:255',
             'last_name'     => 'required|string|max:255',
             'email'         => 'required|email|unique:users,email',
+            'phone' => 'nullable|string|max:11', // Add phone validation
             'role_task'     => 'required|string|max:255',
             'work_shift'    => 'required',
         ]);
@@ -39,6 +40,7 @@ class EmployeeController extends Controller
             'first_name' => $validated['first_name'],
             'last_name'  => $validated['last_name'],
             'email'      => $validated['email'],
+            'phone'      => $validated['phone'], // Add phone number
             'password'   => bcrypt('defaultpassword'), // set a random default or generate a token if needed
         ]);
 
@@ -62,6 +64,7 @@ class EmployeeController extends Controller
             'first_name'    => 'required|string|max:255',
             'last_name'     => 'required|string|max:255',
             'email'         => 'required|email|unique:users,email,' . $employee->user_id, // Ignore current user's email
+            'phone' => 'nullable|string|max:11',
             'role_task'     => 'required|string|max:255',
             'work_shift'    => 'required',
         ]);
@@ -70,6 +73,7 @@ class EmployeeController extends Controller
             'first_name' => $validated['first_name'],
             'last_name'  => $validated['last_name'],
             'email'      => $validated['email'],
+            'phone'      => $validated['phone'],
         ]);
 
         $employee->update([

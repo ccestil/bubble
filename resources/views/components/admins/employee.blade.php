@@ -9,7 +9,7 @@
         @endisset
     </div>
 
-    <a href="{{ route('employees.create') }}" class="btn btn-success">➕ Add Employee</a>
+    <a href="{{ route('employees.create') }}" id="add-service">➕ Add Employee</a>
 </div>
 
 <div class="employee-list">
@@ -18,6 +18,7 @@
             <tr>
                 <th>👤 Name</th>
                 <th>📧 Email</th>
+                <th>📞 Phone</th>
                 <th>⏰ Schedule</th>
                 <th>🎓 Role</th>
                 <th>⚙️ Action</th>
@@ -28,17 +29,16 @@
                 <tr>
                     <td class="employee-name">{{ $employee->user->first_name }} {{ $employee->user->last_name }}</td>
                     <td>{{ $employee->user->email }}</td>
+                    <td>{{ $employee->user->phone }}</td>
                     <td>{{ $employee->work_shift }}</td>
                     <td>{{ $employee->role_task }}</td>
                     <td class="action-buttons">
-                        <button class="edit"><a href="{{ route('employees.edit', $employee) }}">✏️ Edit </a></button>
-                        <form action="{{ route('employees.destroy', $employee) }}" method="POST"
-                            style="display: inline;">
+                        <a href="{{ route('employees.edit', $employee) }}" class="edit btn btn-primary btn-sm" title="Edit">✏️</a>
+                        <form action="{{ route('employees.destroy', $employee) }}" method="POST" style="display: inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="delete"
-                                onclick="return confirm('Are you sure you want to delete this employee? This cannot be undone.)">🗑️
-                                Delete</button>
+                            <button type="submit" class="delete btn btn-danger btn-sm"
+                                onclick="return confirm('Are you sure you want to delete this employee? This cannot be undone.')" title="Delete">🗑️</button>
                         </form>
                     </td>
                 </tr>
