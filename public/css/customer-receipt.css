@@ -1,0 +1,111 @@
+body {
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card Layout */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+/* Title Section */
+.card-title h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Each line as a row */
+.card-text p {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 1rem;
+    color: #34495e;
+    margin: 0;
+}
+
+/* Title/label (left side) */
+.card-text strong {
+    width: 40%;
+    text-align: right;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-right: 10px;
+}
+
+/* Value/content (right side) */
+.card-text span {
+    width: 55%;
+    text-align: left;
+    color: #555;
+    font-weight: 400;
+}
+
+.back-button-container {
+    display: flex;
+    justify-content: center;
+
+}
+/* Back Button */
+.back-button {
+    display: inline-block;
+    margin-top: 30px;
+    background-color: #fc5b5ba6;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #cf4242fd;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .card {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .card-text strong {
+        width: 120px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .back-button {
+        display: none;
+    }
+
+    .card {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+}

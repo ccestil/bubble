@@ -95,22 +95,24 @@ h2 {
 .transaction-form .btn-primary {
     background-color: #799dbd;
     color: #f1f1f1;
+    border: 1px solid transparent;
+
 }
 
 .transaction-form .btn-primary:hover {
-    background-color: #f1f1f1;
-    color:#799dbd ;
+    background-color: #87CEEB;
+    color:#f1f1f1 ;
 }
 
 .transaction-form .btn-secondary {
-    background-color: #afc0cf;
-    color: #f1f1f1;
-    border: 1px solid #799dbd;
+    background-color: #f1f1f1;
+    color: #cf4242fd;
+    border: solid 1.5px #cf4242fd;
 }
 
 .transaction-form .btn-secondary:hover {
-    background-color: var(--form-secondary-hover);
-    border-color: var(--form-secondary-hover);
+    background-color: #cf4242fd;
+    color: #f1f1f1;
 }
 
 .transaction-form .d-flex {

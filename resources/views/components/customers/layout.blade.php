@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Customer Dashboard</title>
+    <title>Bubbleworks | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
             <div class="dropdown">
                 <p class="dropdown-toggle"> <img src="{{ asset('images/settings.svg') }}" style="width: 20px; vertical-align: middle; margin-right: 5px;">Settings</p>
                 <div class="dropdown-menu">
-                    <a href="#">✏️ Edit Profile</a>
+                    <a href="{{ route('customer.profile.edit') }}">✏️ Edit Profile</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="logout-button">🚪 Logout</button>

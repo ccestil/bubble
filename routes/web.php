@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Customer\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -87,6 +88,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/customer/profile', [CustomerDashboardController::class, 'profile'])->name('customer.profile');
     Route::get('/customer/transactions/{transaction}', [CustomerTransactionController::class, 'show'])->name('customer.transactions.show');
     Route::get('/customer/history', [CustomerTransactionController::class, 'history'])->name('customer.transactions.history');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('customer.profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('customer.profile.update');
 });
 
 

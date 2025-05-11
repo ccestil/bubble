@@ -1,1 +1,0 @@
-<h1>Juan Dela Cruz</h1>

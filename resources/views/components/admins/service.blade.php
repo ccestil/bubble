@@ -2,11 +2,11 @@
     <h3 class="service-title">🫧 Services</h3>
 
     @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success" style="color: green;">{{ session('success') }}</div>
     @endif
 
     @if (session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
+        <div class="alert alert-danger" style="color: red;">{{ session('error') }}</div>
     @endif
 
     <a id="add-service" href="{{ route('services.create') }}">➕ Add Service</a>
