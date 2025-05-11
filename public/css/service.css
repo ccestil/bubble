@@ -20,7 +20,7 @@
 }
 
 .service-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #1f2937;
     margin: 0;
@@ -138,38 +138,47 @@
 }
 
 .service-list .action-buttons {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    align-items: center;
+    text-align: left; /* Align content to the left */
+    white-space: nowrap; /* Prevent buttons from wrapping */
 }
 
+.service-list .action-buttons a,
 .service-list .action-buttons button {
-    padding: 8px 16px;
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    font-size: 0.875rem;
     font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    width: 30px;
+    height: 30px;
+    margin-right: 4px; /* Add a little spacing between buttons */
     cursor: pointer;
-    background: #f1f5f9;
-    color: #64748b;
 }
 
-.service-list .action-buttons button:hover {
-    background: #3b82f6;
-    color: white;
-    border-color: #3b82f6;
+.service-list .action-buttons .edit {
+    background-color: #ADD8E6; /* Your light blue */
+    color: #1f2937;
+    border: 1px solid #ADD8E6;
+}
+
+.service-list .action-buttons .edit:hover {
+    background-color: #87CEEB; /* Slightly darker hover */
+    border-color: #87CEEB;
 }
 
 .service-list .action-buttons .delete {
-    background: #fee2e2;
-    color: #ef4444;
-    border-color: #ef4444;
+    background-color: #f87171; /* Softer red */
+    color: white;
+    border: 1px solid #f87171;
 }
 
 .service-list .action-buttons .delete:hover {
-    background: #ef4444;
-    color: white;
+    background-color: #ef4444;
+    border-color: #ef4444;
 }
 
 .service-empty-state {

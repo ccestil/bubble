@@ -2,64 +2,91 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Employee; // Import the Employee model
+use Carbon\Carbon; // Import Carbon for date/time manipulation
 
 class PaymentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show the form for processing payment for a specific transaction.
+     *
+     * @param  \App\Models\Transaction  $transaction
+     * @return \Illuminate\View\View    
      */
-    public function index()
+
+    public function showPaymentForm(Transaction $transaction)
     {
-        //
+        $now = Carbon::now();
+        $currentTime = $now->format('H:i:s'); // Get current time in "HH:MM:SS" format
+
+        $currentShiftEmployees = Employee::where('work_shift', $currentTime)->get();
+
+        // If no employees found for the exact time, fetch all employees
+        if ($currentShiftEmployees->isEmpty()) {
+            $currentShiftEmployees = Employee::all();
+        }
+
+        return view('admin.payments.process', compact('transaction', 'currentShiftEmployees'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Process the payment for a specific transaction.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Transaction  $transaction
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function create()
+    public function processPayment(Request $request, Transaction $transaction)
     {
-        //
-    }
+        $request->validate([
+            'payment_amount' => 'required|numeric|min:0',
+            'payment_method' => 'required|string',
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // Check if a payment already exists for this transaction
+        $existingPayment = Payment::where('transaction_id', $transaction->id)->first();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Payment $payment)
-    {
-        //
-    }
+        if ($existingPayment) {
+            // Update the existing payment record
+            $existingPayment->update([
+                'payment_amount' => $request->payment_amount,
+                'payment_method' => $request->payment_method,
+                'employee_id'    => $request->employee_id,
+            ]);
+            $payment = $existingPayment; // Use the updated payment
+        } else {
+            // Create a new payment record if one doesn't exist
+            $payment = Payment::create([
+                'transaction_id' => $transaction->id,
+                'payment_amount' => $request->payment_amount,
+                'payment_method' => $request->payment_method,
+                'employee_id'    => $request->employee_id,
+            ]);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Payment $payment)
-    {
-        //
-    }
+        // Update the transaction's payment status to 'Paid'
+        $transaction->update(['payment_status' => 'Paid']);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Payment $payment)
-    {
-        //
-    }
+        // Eager load all necessary data
+        $transaction->load('customer.user', 'service', 'employee.user');
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Payment $payment)
-    {
-        //
+        $receiptData = [
+            'transaction' => $transaction,
+            'payment' => $payment,
+            'businessName' => 'Bubbleworks',  //  Replace with your actual business name
+            'businessAddress' => '123 Laundry St. Matina, Davao City', //  Replace with your address
+            'businessPhone' => '555-1212',  //  Replace with your phone number
+        ];
+
+        //  For now, let's just return the data to check if it's correct
+        return view('admin.payments.receipt', $receiptData);
+
+        //  Later, we'll return the actual receipt view/PDF
+        //  return $this->generateReceiptView($receiptData);  //  Or generatePDF($receiptData);
     }
 }

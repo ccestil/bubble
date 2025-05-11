@@ -1,6 +1,6 @@
 <x-admins.layout>
-
-    <x-admins.transaction> </x-admins.transaction>
-
-
+    <x-admins.transaction
+        :totalTransactions="$totalTransactions"
+        :transactions="$transactions"
+    />
 </x-admins.layout>

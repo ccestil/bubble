@@ -1,38 +1,37 @@
 <div class="customer-header">
     <h1 class="customer-title">👥 Customers</h1>
     <div class="total-customers-inline">
-        <span>Total Customers:</span> <strong>62</strong>
+        <span>Total Customers:</span> <strong>{{ $totalCustomers }}</strong>
     </div>
 </div>
 
+<div class="customer-list">
+    <table>
+        <thead>
+            <tr>
+                <th>👤 Name</th>
+                <th>📧 Email</th>
+                <th>📱 Phone</th>
+                <th>🧺 Active Laundry</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse($customers as $customer)
+                <tr>
+                    <td class="customer-name">{{ $customer->user->first_name }} {{ $customer->user->last_name }}</td>
+                    <td>{{ $customer->user->email }}</td>
+                    <td>{{ $customer->user->phone }}</td>
+                    <td>{{ $customer->transactions->count() }}</td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="5">No customers found.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
 
-    <div class="customer-list">
-        <table>
-            <thead>
-                <tr>
-                    <th>👤 Name</th>
-                    <th>📧 Email</th>
-                    <th>📱 Phone</th>
-                    <th>🧺 Active Laundry</th>
-                    <th>⚙️ Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="customer-name">Chris Estil</td>
-                    <td>chris@gmail.com</td>
-                    <td>0909090909</td>
-                    <td>1</td>
-                    <td class="action-buttons">
-                        <button class="edit">Edit</button>
-                        <button class="delete">Delete</button>
-                    </td>
-                </tr>
-                <!-- Add more rows -->
-            </tbody>
-        </table>
-    </div>
-    @push('styles')
+@push('styles')
 <link rel="stylesheet" href="{{ asset('css/customer.css') }}">
 @endpush
-

@@ -16,7 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
             'employee_id',
             'weight',
             'total_amount',
-            'payment_status'
+            'payment_status',
+            'laundry_status'// and this
 
         ];
 
@@ -29,7 +30,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
     public function service(): BelongsTo  // One transaction uses one service.
     {
         
-        return $this->belongsTo(Service::class);
+        return $this->belongsTo(Service::class, 'service_id');
     }
 
     public function employee(): BelongsTo  // One transaction is handled by one employee.

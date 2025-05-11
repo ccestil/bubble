@@ -5,19 +5,51 @@
 }
 
 body {
-    background-color: #f1f1f1;  
+    background-color: #f1f1f1;
     color: #333;
     max-width: 1280px;
     margin: 0px auto;
 }
 
-.inline-header, .inline-p {
+a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+#add-service {
+    color: white;
+    background-color: #799dbd;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#add-service:hover {
+    color: #799dbd;
+    background-color: #f1f1f1;
+    padding: 9px;
+    border: solid 1px #799dbd
+}
+
+
+
+.inline-header,
+.inline-p {
     display: inline-block;
 }
 
 .container {
     display: flex;
     height: 100vh;
+    max-width: 100%;
+    /* Let container take full width within body */
+    margin: 0 auto;
     background-color: aliceblue;
 }
 
@@ -29,9 +61,12 @@ body {
 }
 
 .nav-header h1 {
-    color: #0066ff;
-    font-size: 24px;
+    color: #799dbd;
+    font-size: 28px;
     margin-bottom: 2rem;
+    font-family: "Fredoka", sans-serif;
+    text-align: center;
+
 }
 
 .nav-links ul {
@@ -53,6 +88,9 @@ body {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
+    min-width: 800px;
+    /* Ensure main content doesn't get too narrow */
+
 }
 
 .topbar {
@@ -64,11 +102,20 @@ body {
 }
 
 .add-btn {
-    background-color: #0066ff;
+    background-color: #799dbd;
     color: white;
-    border: none;   
-    padding: 0.5rem 1rem;
+    border: none;
+    padding: 10px;
     border-radius: 5px;
+    text-decoration: none;
+}
+
+.add-btn:hover {
+    background-color: #f1f1f1;
+    border: #799dbd solid 2px;
+    padding: 8px;
+    color: #799dbd;
+
 }
 
 .search-form input[type="text"] {
@@ -102,7 +149,7 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
 }
 
 .revenue-header {
@@ -148,9 +195,11 @@ body {
 
 }
 
-.breakdown-card, .revenue-card {
+.breakdown-card,
+.revenue-card {
     padding: 30px;
 }
+
 .breakdown-row {
     display: flex;
     justify-content: space-between;
@@ -191,6 +240,14 @@ body {
     transition: all 0.2s ease-in-out;
 }
 
+.navbar .nav-links a.active:active {
+    font-weight: bold;
+    /* Example: Make the active link bold */
+    color: #007bff;
+    /* Example: Change the text color to blue */
+    /* Add more styles as needed */
+}
+
 .nav-links a:hover {
     background-color: #e0f0ff;
     color: #0066ff;
@@ -198,9 +255,119 @@ body {
 }
 
 /* Emojis */
-.nav-links li:nth-child(1) a::before { content: "📊 "; }
-.nav-links li:nth-child(2) a::before { content: "🛒 "; }
-.nav-links li:nth-child(3) a::before { content: "👥 "; }
-.nav-links li:nth-child(4) a::before { content: "🧍 "; }
-.nav-links li:nth-child(5) a::before { content: "📦 "; }
-.nav-links li:nth-child(6) a::before { content: "🫧 "; }
+.nav-links li:nth-child(1) a::before {
+    content: "📊 ";
+}
+
+.nav-links li:nth-child(2) a::before {
+    content: "🛒 ";
+}
+
+.nav-links li:nth-child(3) a::before {
+    content: "👥 ";
+}
+
+.nav-links li:nth-child(4) a::before {
+    content: "🧍 ";
+}
+
+.nav-links li:nth-child(5) a::before {
+    content: "📦 ";
+}
+
+.nav-links li:nth-child(6) a::before {
+    content: "🫧 ";
+}
+
+/* admin.css */
+/* ... existing body and container styles ... */
+
+@media (min-width: 1920px) {
+    body {
+        max-width: 1500px;
+        /* Wider max-width for Full HD and larger */
+    }
+
+    /* You can add specific table adjustments here if needed for wider screens */
+    /* For example, you could slightly increase font size or padding */
+    /* .transaction-list th, */
+    /* .transaction-list td { */
+    /* padding: 14px 12px; */
+    /* font-size: 0.9rem; */
+    /* } */
+}
+
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Adjust minmax width as needed */
+    gap: 20px;
+    /* Adjust gap between sections */
+    padding: 0px 0px;
+    /* Add some padding around the widgets */
+}
+
+.transactions-section,
+.customers-section {
+    display: grid;
+    gap: 10px;
+    /* Adjust gap between items within each section */
+}
+
+.transactions-section {
+    grid-template-columns: auto auto;
+    /* Header takes auto, cards take auto */
+}
+
+.customers-section {
+    grid-template-columns: auto auto;
+    /* Header takes auto, cards take auto */
+}
+
+.widget-header {
+    grid-column: 1 / -1;
+    /* Make the header span across all columns in its section */
+    border-radius: 5px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.widget-card {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: start;
+}
+
+.widget-title {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.widget-value {
+    font-weight: bold;
+    color: #64D9E2;
+    /* Example primary color */
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 600px) {
+    .dashboard-widgets {
+        grid-template-columns: 1fr;
+        /* Stack sections on smaller screens */
+    }
+
+    .transactions-section,
+    .customers-section {
+        grid-template-columns: 1fr;
+        /* Stack cards within sections on smaller screens */
+    }
+}
+
+/* transaction.css */
+/* ... existing table styles ... */

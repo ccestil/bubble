@@ -2,25 +2,39 @@
 
 namespace App\View\Components\Admins;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Dashboard extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-        //
+    public $timePeriod;
+    public $totalRevenue;
+    public $revenueBreakdown;
+    public $totalTransactions; // Add this
+    public $activeTransactions; // Add this
+    public $totalCustomers; // Add this
+    public $dailyAverageTransactions; // Add this
+
+    public function __construct(
+        $timePeriod = null,
+        $totalRevenue = null,
+        $revenueBreakdown = null,
+        $totalTransactions = null,
+        $activeTransactions = null,
+        $totalCustomers = null,
+        $dailyAverageTransactions = null
+    ) {
+        $this->timePeriod = $timePeriod;
+        $this->totalRevenue = $totalRevenue;
+        $this->revenueBreakdown = $revenueBreakdown;
+        $this->totalTransactions = $totalTransactions;
+        $this->activeTransactions = $activeTransactions;
+        $this->totalCustomers = $totalCustomers;
+        $this->dailyAverageTransactions = $dailyAverageTransactions;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render(): View
     {
-        return view('components.admins.dashboard');
+        return view('components.admins.dashboard'); // Make sure this path is correct
     }
 }

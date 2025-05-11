@@ -9,15 +9,27 @@ use Illuminate\View\Component;
 class Employee extends Component
 {
     /**
-     * Create a new component instance.
+     * The employees data.
+     *
+     * @var mixed
      */
-    public function __construct()
+    public $employees;
+
+    /**
+     * Create a new component instance.
+     *
+     * @param  mixed  $employees
+     * @return void
+     */
+    public function __construct($employees = null) // Make $employees optional and set default to null
     {
-        //
+        $this->employees = $employees;
     }
 
     /**
      * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Closure|string
      */
     public function render(): View|Closure|string
     {

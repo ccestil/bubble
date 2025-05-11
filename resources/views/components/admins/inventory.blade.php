@@ -11,7 +11,6 @@
                 <tr>
                     <th><span>👤</span> <span>Name</span></th>
                     <th><span>📧</span> <span>Description</span></th>
-                    <th><span>⏰</span> <span>Supplier</span></th>
                     <th><span>🏷️</span> <span>Price</span></th>
                     <th><span>📦</span> <span>Stock</span></th>
                     <th><span>⚙️</span> <span>Action</span></th>
@@ -22,7 +21,6 @@
                 <tr>
                     <td class="inventory-name">Downy</td>
                     <td>Fabric conditioner</td>
-                    <td>Triple A</td>
                     <td>20.00</td>
                     <td>120</td>
                     <td class="action-buttons">

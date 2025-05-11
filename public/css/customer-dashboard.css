@@ -1,0 +1,148 @@
+/* customer-dashboard.css */
+
+.transaction-list table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.transaction-list thead {
+    background-color: #9abddc; /* Indigo */
+    color: white;
+}
+
+.transaction-list thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.transaction-list tbody td {
+    padding: 12px 16px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #333;
+}
+
+.transaction-list tbody tr:hover {
+    background-color: #f9f9ff;
+    transition: background-color 0.2s ease;
+}
+
+.transaction-list tbody td a.btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #67aefa;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2d8bf0;
+}
+
+.btn-secondary {
+    background-color: #6B7280; /* Gray */
+    color: white;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #4B5563;
+}
+
+/* Headings spacing */
+.transaction-subtitle {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: grey;
+}
+
+/* Table wrapper spacing */
+.transaction-list {
+    margin-top: 16px;
+}
+
+/* No transactions row */
+.transaction-list tbody tr td[colspan] {
+    text-align: center;
+    padding: 20px;
+    color: #6B7280;
+    font-style: italic;
+}
+
+/* Welcome message */
+h3 {
+    font-size: 28px;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+    color: #81a3c2;
+    margin-bottom: 16px;
+}
+
+/* ------------------- Responsive Design ------------------- */
+@media (max-width: 768px) {
+    .transaction-list table,
+    .transaction-list thead,
+    .transaction-list tbody,
+    .transaction-list th,
+    .transaction-list td,
+    .transaction-list tr {
+        display: block;
+        width: 100%;
+    }
+
+    /* Hide table headers (we'll use data-label instead) */
+    .transaction-list thead {
+        display: none;
+    }
+
+    .transaction-list tbody tr {
+        margin-bottom: 16px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        padding: 12px;
+    }
+
+    .transaction-list tbody td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+    }
+
+    .transaction-list tbody td::before {
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #4F46E5;
+        content: attr(data-label);
+        font-size: 13px;
+    }
+
+    .transaction-list tbody tr td[colspan] {
+        padding-left: 16px;
+        text-align: center;
+    }
+}
+

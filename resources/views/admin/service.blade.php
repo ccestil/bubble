@@ -1,6 +1,3 @@
 <x-admins.layout>
-
-    <x-admins.service> </x-admins.service>
-
-
+    <x-admins.service :services="$services" />
 </x-admins.layout>

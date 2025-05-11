@@ -11,9 +11,15 @@ class Dashboard extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $user;
+    public $customer;
+
+
+    public function __construct($user, $customer)
     {
         //
+        $this->user = $user;
+        $this->customer = $customer;
     }
 
     /**
