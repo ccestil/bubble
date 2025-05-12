@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 
@@ -38,15 +39,22 @@ class UserController extends Controller
             'password'   => $request->role === 'customer' ? 'required|min:8|confirmed' : 'nullable',
             'role'       => 'required|in:customer,employee,owner',
         ]);
-        
+
         if ($request->role === 'customer') {
             $validated['password'] = bcrypt($validated['password']);
         } else {
-            $validated['password'] = bcrypt('defaultpassword'); // or generate random password
+            $validated['password'] = bcrypt('defaultpassword'); // generate random password
         }
-        
-        User::create($validated);
-    
+
+        $user = User::create($validated); // Create the User
+
+        // Create the Customer record and associate it with the User
+        if ($request->role === 'customer') {
+            Customer::create([
+                'user_id' => $user->id,
+            ]);
+        }
+
         return redirect('/login');
     }
     /**

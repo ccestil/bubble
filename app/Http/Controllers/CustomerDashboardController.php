@@ -11,7 +11,6 @@ class CustomerDashboardController extends Controller
     {
         $user = Auth::user();
 
-        // Corrected singular relationship
         $customer = $user->customer()->with('transactions.service')->first();
 
         return view('customer.dashboard', compact('user', 'customer'));
