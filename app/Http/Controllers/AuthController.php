@@ -72,7 +72,7 @@ class AuthController extends Controller
         ]);
 
         // Attempt to authenticate the admin user
-        if (Auth::attempt($credentials)) { // You might need to customize the guard here
+        if (Auth::attempt($credentials)) { 
             $request->session()->regenerate();
 
             return redirect()->intended('/home'); // Redirect admin to their dashboard

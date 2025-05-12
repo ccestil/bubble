@@ -6,6 +6,7 @@
 
 body {
     background-color:#f1f1f1;
+
 }
 
 h1, h2, h3{ 
@@ -78,8 +79,7 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    height: 650px;
-    padding-bottom: 200px;
+
 }
 
 .hero-section div {
@@ -88,6 +88,12 @@ nav {
     align-items: center;
     justify-content: flex-end;
     width: 100%;
+    padding-bottom: 15rem;
+    padding-top: 10rem;
+
+    border-bottom: 1px solid rgba(128, 128, 128, 0.253);
+    
+
 }
 
 .hero-section p {
@@ -154,3 +160,230 @@ nav {
     width: 17%;
     margin-block-start: 30px;
 }
+
+/* ------------- SERVICES Section------------ */
+
+.service {
+    display: flex;  
+    justify-content: center;    
+    gap: 7rem;
+    align-items: start;
+    margin: 0px auto;
+    max-width: 1366px;
+    border-radius: 30px;
+
+
+}
+
+.service1 {
+    background-color: #f6f6f6;
+    padding: 5rem;
+    margin-bottom: 5rem;
+}
+
+.service2 {
+    background-color: #ececec;
+    padding: 5rem;
+    
+}
+
+.service img {
+    width: 800px;
+    border-radius: 30px;
+}
+
+
+
+#service-header {
+    margin-block: 5rem;
+}
+
+.service div, .service p {
+    display: block;
+    text-align: start;
+    font-size: 24px;    
+}
+
+.service span {
+    color: rgb(45, 190, 190);
+}
+
+.testimonial {
+    display: flex;
+    gap: 8rem;
+    justify-content: center;
+    padding: 2rem 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 10rem;
+    margin-top: 2rem;
+}
+
+#testimonial-header {
+    margin-block: 5rem;
+}
+
+
+
+.testimonial div:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.testimonial p {
+    font-style: italic;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    min-height: 60px;
+}
+
+.testimonial .stars {
+    color: #fbbf24; /* amber-400 for gold stars */
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    border: none;
+}
+
+.testimonial h2 {
+    margin: 0;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    background: white;
+    width: 300px;
+}
+
+.testimonial-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card .stars {
+    color: #fbbf24; /* gold */
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.testimonial-card h2 {
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+}
+
+
+.footer {
+    background-color: #446d92; /* dark slate */
+    color: #f1f5f9; /* light gray */
+    padding-top: 3rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-cta {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color:  	#24496b; /* darker */
+    color: #f1f5f9;
+}
+
+.footer-cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f7fafe;
+}
+
+.footer-cta p {
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    color: #cbd5e1;
+}
+
+.footer-cta .btn-cta {
+    background-color: #f1f1f1;
+    color: #2a5286;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.footer-cta .btn-cta:hover {
+    background-color: #2a5286;
+    border: 2px solid #f1f1f1;
+    color: #f1f1f1;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+}
+
+.footer-links div {
+
+    display: flex;
+    flex-direction: column  ;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: #e2e8f0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+    color: #cbd5e1;
+}
+
+.footer-links a {
+    color: #93c5fd;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0f172a;
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+

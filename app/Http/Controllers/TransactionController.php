@@ -25,22 +25,6 @@ class TransactionController extends Controller
 
 
 
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-    
-        $searchResults = Customer::whereHas('user', function ($q) use ($query) {
-            $q->where('first_name', 'like', '%' . $query . '%')
-              ->orWhere('last_name', 'like', '%' . $query . '%')
-              ->orWhere('email', 'like', '%' . $query . '%')
-              ->orWhere('phone', 'like', '%' . $query . '%'); // Search in users table
-        })
-        ->get();
-    
-        return view('admin.transactions.create', compact('searchResults'));
-    }
-
-
     /**
      * Show the form for creating a new resource.
      */

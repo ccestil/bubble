@@ -21,8 +21,7 @@ class CustomerTransactionController extends Controller
     {
         try {
             $transaction->load('service', 'customer.user'); // Load service and customer's user
-            // If you need payment details:
-            // $transaction->load('payment');
+
 
             if ($transaction->customer_id !== Auth::user()->customer->id) {
                 Log::error('Unauthorized access to transaction: ' . $transaction->id . ' by customer: ' . Auth::id());
@@ -36,21 +35,6 @@ class CustomerTransactionController extends Controller
         }
     }
 
-    /**
-     * Display the transaction history for the authenticated customer.
-     *
-     * @return View
-     */
-    public function history(): View
-    {
-        try {
-            $user = Auth::user();
-            $customer = $user->customer()->with('transactions.service')->first();
 
-            return view('customer.transactions.history', compact('customer'));
-        } catch (\Exception $e) {
-            Log::error('Error fetching transaction history: ' . $e->getMessage());
-            abort(500, 'Unable to retrieve transaction history.');
-        }
-    }
+
 }

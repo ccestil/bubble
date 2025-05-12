@@ -22,7 +22,7 @@ class Customer extends Model
 
     }
 
-    public function user(): BelongsTo
+    public function user(): BelongsTo // A user belongs to a User
     {
         return $this->belongsTo(User::class);
     }
