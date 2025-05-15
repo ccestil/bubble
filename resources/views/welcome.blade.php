@@ -42,9 +42,7 @@
                 <h1>Fresh, Fast, Effortless
                     <br> Laundry That Lets You Live
                 </h1>
-                <p>Schlitz live-edge PBR&B sartorial, literally organic venmo bicycle rights butcher kale chips
-                    kickstarter
-                    banjo tumeric blackbird spyplane. </p>
+                <p>Reclaim your weekends and say goodbye to laundy day! Our cinvenient service handles all your washing, drying and folding with speed and care. </p>
                 <a href="" class="btn btn-hero-cta">Get Your Clothes Ready</a>
             </div>
 

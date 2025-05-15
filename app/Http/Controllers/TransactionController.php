@@ -33,12 +33,12 @@ class TransactionController extends Controller
         $customers = Customer::with('user')->get()->map(function ($customer) {
             return [
                 'id' => $customer->id,
-                'text' => $customer->user->first_name . ' ' . $customer->user->last_name . ' (' . $customer->user->email . ')',
+                'text' => $customer->user->first_name . ' ' . $customer->user->last_name . ' (' . $customer->user->email . ')', // concatenate fname, lname, email
             ];
         });
 
         $services = Service::all()->pluck('service_name', 'id');
-        $employees = Employee::with('user')->get()->pluck('user.first_name', 'id');
+        $employees = Employee::with('user')->get()->pluck('user.first_name', 'id'); // fetche all Service models and then use the pluck() method to extract specific columns. 
 
         return view('admin.transactions.create', compact('customers', 'services', 'employees'));
     }
@@ -66,7 +66,7 @@ class TransactionController extends Controller
             Payment::create([
                 'transaction_id' => $transaction->id,
                 'payment_amount' => $totalAmount,
-                'payment_method' => 'Cash', // Hardcoded for now (you might want to get this from the request)
+                'payment_method' => 'Cash', 
                 'employee_id'    => $request->employee_id,
             ]);
         }

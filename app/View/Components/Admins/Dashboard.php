@@ -10,7 +10,7 @@ class Dashboard extends Component
     public $timePeriod;
     public $totalRevenue;
     public $revenueBreakdown;
-    public $totalTransactions; // Add this
+    public $totalTransactions; 
     public $activeTransactions; // Add this
     public $totalCustomers; // Add this
     public $dailyAverageTransactions; // Add this

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    
+    
     <title>Receipt - Transaction #{{ $transaction->id }}</title>
     <style>
         body {
@@ -8,10 +15,18 @@
             font-size: 14px;
             line-height: 1.5;
             margin: 20px;
+            max-width: 720px;
+            margin: 0px auto;
         }
         .receipt-header {
             text-align: center;
             margin-bottom: 20px;
+
+        }
+        .receipt-header h1 {
+                font-family: "Fredoka", sans-serif;
+                color: #2a5286c4;
+
         }
         .business-info {
             margin-bottom: 10px;
@@ -22,6 +37,7 @@
             padding: 10px;
             border-radius: 5px;
         }
+        
         table {
             width: 100%;
             border-collapse: collapse;
@@ -46,7 +62,7 @@
         }
         .print-button-container {
             text-align: center;
-            margin-top: 20px;
+            margin-block: 50px;
         }
         .print-button {
             padding: 10px 20px;
@@ -60,18 +76,18 @@
 
         .back-button-container {
         text-align: center;
-        margin-top: 10px;
+        margin-block: 20px;
+        font-weight: 500;
     }
 
     .back-button {
         padding: 10px 20px;
-        background-color: #3490dc; /* Blue */
-        color: white;
-        border: none;
+        background-color: white; /* Blue */
+        color: #2a5286c4;
+        border: solid 2px #2a5286c4;
         border-radius: 5px;
         cursor: pointer;
         text-decoration: none; /* Remove underline */
-        color: white; /* Ensure text color is white */
     }
 
     .back-button:hover {

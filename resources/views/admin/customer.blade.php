@@ -1,6 +1,6 @@
 <x-admins.layout>
 
-    <x-admins.customer :customers="$customers" :totalCustomers="$totalCustomers" />
+    <x-admins.customer :customers="$customers" :totalCustomers="$totalCustomers" :sortDirectionName="$sortDirectionName" :sortField="$sortField" :sortDirectionCreated="$sortDirectionCreated"  />
 
 
 

@@ -17,7 +17,12 @@
             {{-- Revenue Card --}}
             <div class="card revenue-card">
                 <h3>{{ ucfirst($timePeriod) }}</h3>
-                <h1 class="revenue-total">₱{{ number_format($totalRevenue, 2) }}</h1>
+                <div style="display: flex; align-items:baseline; justify-content: space-between">
+                    <h1 class="revenue-total" style="margin-right: 10px;">₱{{ number_format($totalRevenue, 2) }}</h1>
+                    <div style="width: 150px; height: 50px;">
+                        <canvas id="revenueChart" ></canvas>
+                    </div>
+                </div>
             </div>
 
             {{-- Breakdown Card --}}
@@ -31,43 +36,19 @@
 
                 <div class="breakdown-row amount">
                     @foreach ($revenueBreakdown as $item)
-                        <h2 class="widget-value">{{ number_format($item['total_revenue'], 2) }}</h2>
+                        <h2 class="widget-value">
+                            {{ number_format($item['total_revenue'] ?? 0, 2) }}
+                        </h2>
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
 
-    {{-- Metrics Section --}}
-    {{-- <div class="metrics-section">
-        <div class="section-header">
-            <h3 class="metric-title-trx">🧾 Transactions</h3>
-            <h3 class="metric-title-cus">👥 Customers</h3>
-            {{-- <h3 class="metric-title-inv">📦 Inventory</h3> --}}
-    {{-- </div> --}}
-
-    {{-- <div class="metrics-grid">
-            <div class="card small-card">
-                <p class="card-title">Total Transactions</p>
-                <h2>{{ $totalTransactions }}</h2>
-            </div>
-            <div class="card small-card">
-                <p class="card-title">Active Transactions</p>
-                <h2>{{ $activeTransactions }}</h2>
-            </div>
-            <div class="card small-card">
-                <p class="card-title">Total Customers</p>
-                <h2>{{ $totalCustomers }}</h2>
-            </div>
-            <div class="card small-card">
-                <p class="card-title">Daily Average</p>
-                <h2>{{ number_format($dailyAverageTransactions, 2) }}</h2>
-            </div> --}}
-
-    <div class="dashboard-widgets">
+    <div class="overall-analytics">
         <div class="transactions-section">
             <div class="widget-header">
-                <i class="fas fa-file-alt"></i>🧾 Transactions
+                <i class="fas fa-chart-line"></i>📈 Transactions
             </div>
             <div class="widget-card">
                 <div class="widget-title">Total Transactions</div>
@@ -104,16 +85,74 @@
         </div>
     </div>
 
-    {{-- <div class="card small-card">
-                <p class="card-title">Fabric Conditioner</p>
-                <h2 class="inline-header">120</h2>
-                <p class="inline-p">left</p>
+    {{-- <div class=\"card small-card\">
+                <p class=\"card-title\">Fabric Conditioner</p>
+                <h2 class=\"inline-header\">120</h2>
+                <p class=\"inline-p\">left</p>
             </div>
-            <div class="card small-card">
-                <p class="card-title">Detergent Powder</p>
-                <h2 class="inline-header">68</h2>
-                <p class="inline-p">left</p> --}}
+            <div class=\"card small-card\">
+                <p class=\"card-title\">Detergent Powder</p>
+                <h2 class=\"inline-header\">68</h2>
+                <p class=\"inline-p\">left</p> --}}
     </div>
     </div>
     </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('revenueChart').getContext('2d');
+    const revenueData = {
+        labels: [
+            @foreach ($revenueBreakdown as $item)
+                "{{ $item['service_name'] }}",
+            @endforeach
+        ],
+        datasets: [{
+            label: 'Revenue',
+            data: [
+                @foreach ($revenueBreakdown as $item)
+                    {{ $item['total_revenue'] }},
+                @endforeach
+            ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const revenueChart = new Chart(ctx, {
+        type: 'bar',
+        data: revenueData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // Add this line
+            plugins: {
+                legend: {
+                    display: false,
+                },
+            },
+            scales: {
+                x: {
+                    display: false, // Remove x-axis labels
+                },
+                y: {
+                    display: false, // Remove y-axis labels
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

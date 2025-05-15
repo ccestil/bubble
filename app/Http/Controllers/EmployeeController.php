@@ -51,7 +51,7 @@ class EmployeeController extends Controller
             'work_shift' => $validated['work_shift'],
         ]);
 
-        return redirect()->back()->with('success', 'Employee created successfully!');
+        return redirect()->route('employees.index')->with('success', 'Employee created successfully!');
     }
 
     public function edit(Employee $employee)

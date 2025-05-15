@@ -24,17 +24,18 @@ p {
 }
 
 #add-service {
-    color: white;
-    background-color: #799dbd;
-    padding: 10px;
+    color: #799dbd;
+    background-color: white;
+    padding: 8px;
     border-radius: 8px;
+    border: solid 2px #799dbd; 
 }
 
 #add-service:hover {
     color: #799dbd;
     background-color: #f1f1f1;
-    padding: 9px;
-    border: solid 1px #799dbd
+    padding: 8px;
+    border: solid 2px #799dbd
 }
 
 
@@ -333,7 +334,7 @@ p {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-block: 10px;
 }
 
 .widget-card {
@@ -351,7 +352,7 @@ p {
 
 .widget-value {
     font-weight: bold;
-    color: #64D9E2;
+    color: #00000073;
     /* Example primary color */
 }
 

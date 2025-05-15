@@ -69,7 +69,7 @@ class ServiceController extends Controller
         $request->validate([
             'service_name' => 'required|string|max:255',
             'price_per_kg' => 'required|numeric|min:0',
-            // Add validation for other fields if you add them later
+            // Add validation for other fields if 
         ]);
 
         $service->update($request->all());

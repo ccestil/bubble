@@ -61,7 +61,6 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     // Routes for displaying the payment form and processing the payment
     Route::get('/transactions/{transaction}/pay', [PaymentController::class, 'showPaymentForm'])->name('admin.transactions.pay');
     Route::post('/transactions/{transaction}/process-payment', [PaymentController::class, 'processPayment'])->name('admin.transactions.process-payment');
-
 });
 
 // Unauthorized access routes
