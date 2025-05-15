@@ -25,10 +25,10 @@
             <div class="dropdown">
                 <p class="dropdown-toggle"> <img src="{{ asset('images/settings.svg') }}" style="width: 20px; vertical-align: middle; margin-right: 5px;">Settings</p>
                 <div class="dropdown-menu">
-                    <a href="{{ route('customer.profile.edit') }}">✏️ Edit Profile</a>
+                    <a href="{{ route('customer.profile.edit') }}">✏️ Account Settings</a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="logout-button">🚪 Logout</button>
+                        <button type="submit" class="logout-button">🚪 Log Out</button>
                     </form>
                 </div>
             </div>

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card edit-profile-card">
-                    <div class="card-header edit-profile-card-header">{{ __('Edit Profile') }}</div>
+                    <div class="card-header edit-profile-card-header">{{ __('Update Personal Details') }}</div>
 
                     <div class="card-body edit-profile-card-body">
                         <form method="POST" action="{{ route('customer.profile.update') }}">
@@ -11,40 +11,44 @@
                             @method('PUT')
 
                             {{-- First Name --}}
-                            <div class="row mb-4 align-items-center">
-                                <label for="first_name" class="col-md-4 text-md-end form-label">
-                                    {{ __('First Name') }}
-                                </label>
-                                <div class="col-md-6">
-                                    <input id="first_name" type="text"
-                                        class="form-control @error('first_name') is-invalid @enderror"
-                                        name="first_name"
-                                        value="{{ old('first_name', Auth::user()->first_name) }}"
-                                        required autofocus>
 
-                                    @error('first_name')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                            <div class="full-name">
+                                <div class="row mb-4 align-items-center">
+                                    <label for="first_name" class="col-md-4 text-md-end form-label">
+                                        {{ __('First Name') }}
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input id="first_name" type="text"
+                                            class="form-control @error('first_name') is-invalid @enderror"
+                                            name="first_name"
+                                            value="{{ old('first_name', Auth::user()->first_name) }}"
+                                            required autofocus>
+    
+                                        @error('first_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+    
+                                {{-- Last Name --}}
+                                <div class="row mb-4 align-items-center">
+                                    <label for="last_name" class="col-md-4 text-md-end form-label">
+                                        {{ __('Last Name') }}
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input id="last_name" type="text"
+                                            class="form-control @error('last_name') is-invalid @enderror"
+                                            name="last_name"
+                                            value="{{ old('last_name', Auth::user()->last_name) }}"
+                                            required>
+    
+                                        @error('last_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
 
-                            {{-- Last Name --}}
-                            <div class="row mb-4 align-items-center">
-                                <label for="last_name" class="col-md-4 text-md-end form-label">
-                                    {{ __('Last Name') }}
-                                </label>
-                                <div class="col-md-6">
-                                    <input id="last_name" type="text"
-                                        class="form-control @error('last_name') is-invalid @enderror"
-                                        name="last_name"
-                                        value="{{ old('last_name', Auth::user()->last_name) }}"
-                                        required>
-
-                                    @error('last_name')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
 
                             {{-- Email --}}
                             <div class="row mb-4 align-items-center">

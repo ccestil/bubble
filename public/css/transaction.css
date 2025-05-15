@@ -28,6 +28,7 @@
     font-size: 1rem;
     font-weight: 600;
     color: #4b5563; /* Slightly softer color */
+    margin-right: 20px;
 }
 
 .transaction-list table {
@@ -59,6 +60,7 @@
 .transaction-list .action-buttons {
     text-align: left; /* Align content to the left */
     white-space: nowrap; /* Prevent buttons from wrapping */
+    display: flex;
 }
 
 .transaction-list .action-buttons a,
@@ -80,9 +82,9 @@
 }
 
 .transaction-list .action-buttons .edit {
-    background-color: #ADD8E6; /* Your light blue */
+    background-color: #799dbd; /* Your light blue */
     color: #1f2937;
-    border: 1px solid #ADD8E6;
+    border: 1px solid #799dbd;
 }
 
 .transaction-list .action-buttons .edit:hover {
@@ -102,14 +104,14 @@
 }
 
 .transaction-list .action-buttons .btn-success { /* Process Payment */
-    background-color: #86efac; /* Softer green */
+    background-color: goldenrod; /* Softer green */
     color: #1f2937;
-    border: 1px solid #86efac;
+    border: 1px solid goldenrod;
 }
 
 .transaction-list .action-buttons .btn-success:hover {
-    background-color: #4ade80;
-    border-color: #4ade80;
+    background-color: rgb(168, 128, 26);
+    border-color:  rgb(168, 128, 26);
 }
 
 .add-transaction-button {

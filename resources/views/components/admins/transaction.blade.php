@@ -10,6 +10,7 @@
     <table>
         <thead>
             <tr>
+                <th>Transaction Date</th>
                 <th>👤 Customer</th>
                 <th>📧 Service</th>
                 <th>⚖️ Weight</th>
@@ -22,6 +23,7 @@
         <tbody>
             @forelse($transactions as $transaction)
                 <tr>
+                    <td>{{ $transaction->created_at->format('Y-m-d H:i:s') }}</td>
                     <td class="transaction-name">
                         {{ $transaction->customer->user->first_name }} {{ $transaction->customer->user->last_name }}
                     </td>
@@ -32,16 +34,18 @@
                     <td>{{ $transaction->payment_status }}</td>
                     <td class="action-buttons">
                         <a href="{{ route('transactions.edit', $transaction->id) }}"
-                           class="edit btn btn-sm" title="Edit">✏️</a>
-                           <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="delete btn btn-danger btn-sm"
-                                onclick="return confirm('Are you sure you want to delete this transaction? This cannot be undone.')" title="Edit">🗑️</button>
-                        </form>
+                           class="edit btn btn-sm" title="Edit"><img src="{{ asset('images/edit.svg') }}" alt="Edit"></a>
+                        @if ($transaction->payment_status !== 'Paid')
+                            <form action="{{ route('transactions.destroy', $transaction->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="delete btn btn-danger btn-sm"
+                                    onclick="return confirm('Are you sure you want to delete this transaction? This cannot be undone.')" title="Delete"><img src="{{ asset('images/delete.svg') }}" alt="Delete"></button>
+                            </form>
+                        @endif
                         @if ($transaction->payment_status === 'Unpaid')
                             <a href="{{ route('admin.transactions.pay', $transaction) }}"
-                               class="btn btn-sm btn-success" title="Process Payment">💰</a>
+                               class="btn btn-sm btn-success" title="Process Payment"><img src="{{ asset('images/pay.svg') }}" alt="Pay"></a>
                         @endif
                     </td>
                 </tr>

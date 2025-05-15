@@ -1,7 +1,7 @@
 <x-customers.layout>
     <div class="card">
         <div class="card-title">
-            <h2>Transaction Receipt</h2>
+            <h2>Transaction Details</h2>
         </div>
 
         <div class="card-text">
